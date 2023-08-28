@@ -5,8 +5,46 @@
 @model IndexVM[]
 
 
-<input type="text" value="Search by Title..." />
-<button >Search</button>
+<input type="text" id="searchText" value="Search by Title..." />
+@* <button >Search</button> *@
+<button onclick="search()">Search</button>
+
+<div id="searchResults">
+</div>
+
+<div id="noResultsMessage" style="display: none;">No matching results found.</div>
+
+<script>
+	function search() {
+		var searchText = document.getElementById("searchText").value.toLowerCase();
+		var searchResultsContainer = document.getElementById("searchResults");
+		var noResultsMessage = document.getElementById("noResultsMessage");
+		searchResultsContainer.innerHTML = "";
+		noResultsMessage.style.display = "none";
+
+		var resultsFound = false;
+
+	@foreach (var show in Model)
+	{
+		<text>
+							if ("@show.Title".toLowerCase().includes(searchText)) {
+							resultsFound = true;
+							searchResultsContainer.innerHTML += `
+								<div class="row">
+									<h3>@show.Title</h3>
+									
+
+								</div>`;
+							}
+		</text>
+	}
+
+			if (!resultsFound)
+			{
+			noResultsMessage.style.display = "block";
+			}
+	}
+</script>
 
 <ul>
     @foreach (var item in Model)
