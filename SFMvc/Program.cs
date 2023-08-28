@@ -1,3 +1,5 @@
+using SFMvc.Models;
+
 namespace SFMvc
 {
     public class Program
@@ -6,7 +8,7 @@ namespace SFMvc
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllersWithViews();
-            //builder.Services.AddTransient<DataService>();
+            builder.Services.AddTransient<DataService>();
 
             // Hämta connection-strängen från AppSettings.json
             var connString = builder.Configuration.GetConnectionString("DefaultConnection");
