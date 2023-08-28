@@ -1,8 +1,9 @@
 ﻿@{
-    ViewBag.Title = "Product";
+	ViewBag.Title = "Product";
 }
 
 @model IndexVM[]
+
 
 
 <input type="text" id="searchText" value="Search by Title..." />
@@ -24,40 +25,38 @@
 
 		var resultsFound = false;
 
-	@foreach (var show in Model)
+	@foreach (var item in Model)
 	{
 		<text>
-							if ("@show.Title".toLowerCase().includes(searchText)) {
-							resultsFound = true;
-							searchResultsContainer.innerHTML += `
-								<div class="row">
-									<h3>@show.Title</h3>
-									
-
-								</div>`;
-							}
+			if (searchText = "") {
+				resultsFound = true;
+				searchResultsContainer.innerHTML += `
+							<div class="row">
+								<h1>@item.Title</h1>
+								<h2>@item.Description</h2>
+								<h2>@item.Format</h2>
+								<img src="@item.ImageUrl" style="height:200px;"/>
+								<img src="@item.LogoUrl" style="height:50px;" />
+							</div>`;
+			}
+			else if ("@item.Title".toLowerCase().includes(searchText)) {
+				resultsFound = true;
+				searchResultsContainer.innerHTML += `
+					<div class="row">
+						<h1>@item.Title</h1>
+						<h2>@item.Description</h2>
+						<h2>@item.Format</h2>
+						<img src="@item.ImageUrl" style="height:200px;"/>
+						<img src="@item.LogoUrl" style="height:50px;" />
+					</div>`;
+			}
 		</text>
 	}
 
-			if (!resultsFound)
-			{
+				if (!resultsFound) {
 			noResultsMessage.style.display = "block";
-			}
+		}
 	}
+	window.onload = function () { search(); }
 </script>
 
-<ul>
-    @foreach (var item in Model)
-    {
-        <li>
-            <h1>@item.Title</h1>
-            <h2>@item.Description</h2>
-            <h2>@item.Format</h2>
-            <img src="@item.ImageUrl" style="height:200px;"/>
-            <img src="@item.LogoUrl" style="height:50px;" />
-
-
-
-        </li>
-    }
-</ul>
