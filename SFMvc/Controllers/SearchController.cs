@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SFMvc.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace SFMvc.Controllers
 {
@@ -13,9 +14,11 @@ namespace SFMvc.Controllers
 		}
 
 		[HttpGet]
-		public IActionResult Search(string searchText)
+		public async Task<IActionResult> SearchAsync(string searchText)
 		{
-			var filteredWebsites = dataService.GetAllShows()
+			var filteredWebsites = await dataService.GetAllShowsAsync();
+
+				filteredWebsites
 				.Where(show =>
 					show.Title.ToLower().Contains(searchText.ToLower()))/* ||*/
 					//brand.ProductName.ToLower().Contains(searchText.ToLower()))

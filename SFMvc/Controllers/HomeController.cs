@@ -17,10 +17,10 @@ namespace SFMvc.Controllers
 
 
         [HttpGet("/")]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-
-            return View(dataService.GetAllShows());
+            var model = await dataService.GetAllShowsAsync();
+            return View(model);
         }
 
         
