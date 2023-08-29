@@ -35,6 +35,7 @@
                                     <h2>@item.Format</h2>
                                     <img src="@item.ImageUrl" style="height:200px;"/>
                                     <img src="@item.LogoUrl" style="height:50px;" />
+                                    <a asp-controller="Home", asp-action="AddToWatchList", asp-route-id="@item.Id">Add to watch list</a>
                                 </div>`;
             }
         </text>

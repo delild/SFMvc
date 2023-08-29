@@ -14,6 +14,7 @@ namespace SFMvc
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationContext>()
                 .AddDefaultTokenProviders();
+            builder.Services.AddHttpContextAccessor();
             // Hämta connection-strängen från AppSettings.json
             var connString = builder.Configuration.GetConnectionString("DefaultConnection");
 

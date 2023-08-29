@@ -1,3 +1,9 @@
 ﻿@model PersonalVM
 
 <h1>My watch list</h1>
+
+@foreach (var item in Model.MyWatchList)
+{
+	<h2>@item.Title</h2>
+	<img src="@item.ImageUrl">
+}

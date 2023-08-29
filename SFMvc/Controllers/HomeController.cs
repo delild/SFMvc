@@ -23,7 +23,13 @@ namespace SFMvc.Controllers
             return View(model);
         }
 
-        
+        [HttpGet("index/{id}")]
+        public IActionResult AddToWatchList(int id)
+        {
+            dataService.AddToWatchList(id);
+            return RedirectToAction("personal");
+        }
+
 
         [HttpGet("login")]
         public IActionResult Login()
@@ -92,11 +98,11 @@ namespace SFMvc.Controllers
 
         [Authorize]
         [HttpGet("personal")]
-        public async Task<IActionResult> Personal()
+        public IActionResult Personal()
         {
-            return View();
+            var model = dataService.GetMyWatchList();
+            return View(model);
         }
-
 
 
 

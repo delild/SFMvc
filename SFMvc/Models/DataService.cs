@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SFMvc.Views.Home;
 
@@ -10,13 +11,20 @@ namespace SFMvc.Models
         SignInManager<ApplicationUser> signInManager; // Hanterar inlogging
         RoleManager<IdentityRole> roleManager; // Hanterar roller
         ApplicationContext context;
+        string userId;
 
-        public DataService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, RoleManager<IdentityRole> roleManager, ApplicationContext context)
+        public DataService(
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager,
+            RoleManager<IdentityRole> roleManager,
+            ApplicationContext context,
+            IHttpContextAccessor accessor)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.roleManager = roleManager;
             this.context = context;
+            this.userId = userManager.GetUserId(accessor.HttpContext.User);
         }
 
         //public List<Show> Shows = new List<Show>()
@@ -30,6 +38,7 @@ namespace SFMvc.Models
             return await context.Shows
                 .Select(x => new IndexVM
                 {
+                    Id = x.Id,
                     Title = x.Title,
                     Description = x.Description,
                     Format = x.Format,
@@ -76,15 +85,26 @@ namespace SFMvc.Models
             await signInManager.SignOutAsync();
         }
 
-        public async Task AddToWatchListAsync(int id)
+        public void AddToWatchList(int id)
         {
-            ApplicationUser user = await userManager.FindByIdAsync("1");
-            //user.MyWatchList.Add()
+            context.Shows2Users.Add(new Shows2Users
+            { ApplicationUserId = userId, ShowId = id });
 
+            context.SaveChanges();
         }
 
+        internal PersonalVM GetMyWatchList()
+        {
+            var movies = context.Shows2Users.Where(o => o.ApplicationUserId == userId).ToList();
+            List<Show> shows = new List<Show>();
+            foreach (var item in movies)
+            {
+                Show show = context.Shows.SingleOrDefault(o => o.Id == item.ShowId);
+				shows.Add(show);
+            }
 
-
-
+            var model = new PersonalVM { MyWatchList = shows };
+            return model;
+        }
     }
 }
