@@ -90,6 +90,13 @@ namespace SFMvc.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize]
+        [HttpGet("personal")]
+        public async Task<IActionResult> Personal()
+        {
+            return View();
+        }
+
 
 
 

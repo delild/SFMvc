@@ -51,6 +51,23 @@ namespace SFMvc.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Shows",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Format = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LogoUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Shows", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -156,6 +173,32 @@ namespace SFMvc.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Shows2Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ShowId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Shows2Users", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Shows2Users_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Shows2Users_Shows_ShowId",
+                        column: x => x.ShowId,
+                        principalTable: "Shows",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -194,6 +237,16 @@ namespace SFMvc.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Shows2Users_ApplicationUserId",
+                table: "Shows2Users",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Shows2Users_ShowId",
+                table: "Shows2Users",
+                column: "ShowId");
         }
 
         /// <inheritdoc />
@@ -215,10 +268,16 @@ namespace SFMvc.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Shows2Users");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Shows");
         }
     }
 }

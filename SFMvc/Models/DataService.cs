@@ -23,7 +23,6 @@ namespace SFMvc.Models
         {
             new Show {Id = 1, Title= "The Crown", Description = "An American-British Drama from 2016", Format="Serie", ImageUrl = "https://s2.dmcdn.net/v/UNvgl1ZRLtcvhWl5m/x480", LogoUrl="https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456"},
             new Show {Id = 2, Title= "The Crowning of Eva", Description = "An American-British Drama from 2016", Format="Serie", ImageUrl = "https://s2.dmcdn.net/v/UNvgl1ZRLtcvhWl5m/x480", LogoUrl="https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456"}
-
         };
         
         public IndexVM[] GetAllShows()
@@ -36,8 +35,7 @@ namespace SFMvc.Models
                     Format = x.Format,
                     ImageUrl = x.ImageUrl,
                     LogoUrl = x.LogoUrl,    
-                }
-                )
+                })
                 .ToArray();
         }
 
@@ -49,9 +47,7 @@ namespace SFMvc.Models
                isPersistent: false,
                lockoutOnFailure: false);
 
-
             return result.Succeeded ? null : "Login failed";
-
         }
 
         public async Task<string[]?> TryRegisterAsync(RegisterVM viewModel)
@@ -59,8 +55,6 @@ namespace SFMvc.Models
             var user = new ApplicationUser
             {
                 UserName = viewModel.UserName,
-
-
             };
 
             IdentityResult result = await
@@ -68,8 +62,6 @@ namespace SFMvc.Models
 
             if (result.Succeeded)
             {
-
-
                 return null;
             }
 
@@ -77,7 +69,6 @@ namespace SFMvc.Models
                 return result.Errors
                     .Select(o => o.Description)
                     .ToArray();
-
         }
 
         public async Task TryLogoutAsync()
@@ -85,7 +76,12 @@ namespace SFMvc.Models
             await signInManager.SignOutAsync();
         }
 
-
+        public async Task AddToWatchListAsync(int id)
+        {
+            ApplicationUser user = await userManager.FindByIdAsync("1");
+            //user.MyWatchList.Add()
+            
+        }
 
 
 

@@ -11,5 +11,8 @@ namespace SFMvc.Models
 
         }
 
+        public DbSet<Show> Shows { get; set; }
+        public DbSet<Shows2Users> Shows2Users { get; set; }
+
     }
 }

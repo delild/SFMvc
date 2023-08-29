@@ -12,7 +12,7 @@ using SFMvc.Models;
 namespace SFMvc.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230828144207_Initial migration")]
+    [Migration("20230829094114_Initial migration")]
     partial class Initialmigration
     {
         /// <inheritdoc />
@@ -223,6 +223,63 @@ namespace SFMvc.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("SFMvc.Models.Show", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Format")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LogoUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Shows");
+                });
+
+            modelBuilder.Entity("SFMvc.Models.Shows2Users", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ApplicationUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ShowId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("ShowId");
+
+                    b.ToTable("Shows2Users");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -272,6 +329,35 @@ namespace SFMvc.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("SFMvc.Models.Shows2Users", b =>
+                {
+                    b.HasOne("SFMvc.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("MyWatchList")
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SFMvc.Models.Show", "Show")
+                        .WithMany("UsersThatLikeMe")
+                        .HasForeignKey("ShowId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("Show");
+                });
+
+            modelBuilder.Entity("SFMvc.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("MyWatchList");
+                });
+
+            modelBuilder.Entity("SFMvc.Models.Show", b =>
+                {
+                    b.Navigation("UsersThatLikeMe");
                 });
 #pragma warning restore 612, 618
         }

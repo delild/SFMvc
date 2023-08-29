@@ -7,12 +7,13 @@
 </head>
 <body>
     <nav>
-        
 
+        <a asp-controller="Home" asp-action="Index">Stream-Team</a>
         @if (User.Identity.IsAuthenticated)
         {
             <a asp-controller="Home" asp-action="Logout">Sign out</a>
             <p>Logged in user: @User.Identity.Name</p>
+            <a asp-controller="Home" asp-action="Personal">My page</a>
         }
         else
         {
