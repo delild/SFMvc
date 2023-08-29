@@ -40,5 +40,55 @@ namespace SFMvc.Models
                 )
                 .ToArray();
         }
-	}
+
+        public async Task<string> TryLoginAsync(LoginVM viewModel)
+        {
+            Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.PasswordSignInAsync(
+               viewModel.UserName,
+               viewModel.Password,
+               isPersistent: false,
+               lockoutOnFailure: false);
+
+
+            return result.Succeeded ? null : "Login failed";
+
+        }
+
+        public async Task<string[]?> TryRegisterAsync(RegisterVM viewModel)
+        {
+            var user = new ApplicationUser
+            {
+                UserName = viewModel.UserName,
+
+
+            };
+
+            IdentityResult result = await
+                userManager.CreateAsync(user, viewModel.Password);
+
+            if (result.Succeeded)
+            {
+
+
+                return null;
+            }
+
+            else
+                return result.Errors
+                    .Select(o => o.Description)
+                    .ToArray();
+
+        }
+
+        public async Task TryLogoutAsync()
+        {
+            await signInManager.SignOutAsync();
+        }
+
+
+
+
+
+
+    }
 }

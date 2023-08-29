@@ -7,7 +7,19 @@
 </head>
 <body>
     <nav>
-        <p>Login</p><p>Register</p>
+        
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a asp-controller="Home" asp-action="Logout">Sign out</a>
+            <p>Logged in user: @User.Identity.Name</p>
+        }
+        else
+        {
+            <a asp-controller="Home" asp-action="Login">Login</a>
+            <a asp-controller="Home" asp-action="Register">Register</a>
+        }
+
         
     </nav>
     <div>
