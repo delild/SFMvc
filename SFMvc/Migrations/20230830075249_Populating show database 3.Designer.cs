@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SFMvc.Models;
 
@@ -11,9 +12,11 @@ using SFMvc.Models;
 namespace SFMvc.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20230830075249_Populating show database 3")]
+    partial class Populatingshowdatabase3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -267,7 +270,7 @@ namespace SFMvc.Migrations
                             Id = 2,
                             Description = "I detta drama skildras politiskt maktspel och romantik...",
                             Format = "Serie",
-                            ImageUrl = "thecrown.jpg",
+                            ImageUrl = "https://s2.dmcdn.net/v/UNvgl1ZRLtcvhWl5m/x480",
                             LogoUrl = "netflix.png",
                             Title = "The Crown"
                         },
@@ -285,7 +288,7 @@ namespace SFMvc.Migrations
                             Id = 4,
                             Description = "In a uniquely hilarious odyssey of self-discovery and cultural observation",
                             Format = "Serie",
-                            ImageUrl = "howtowithjohnwilson.jpg",
+                            ImageUrl = "howtowithjohnwilson.avif",
                             LogoUrl = "hbo.jfif",
                             Title = "How To with John Wilson"
                         },
@@ -303,36 +306,9 @@ namespace SFMvc.Migrations
                             Id = 6,
                             Description = "En dramaserie från HBO i fem delar som följer händelserna kring kärnkraftsolyckan i Tjernobyl...",
                             Format = "Miniserie",
-                            ImageUrl = "chernobyl.webp",
+                            ImageUrl = "chernobyl.web",
                             LogoUrl = "hbo.jfif",
                             Title = "Chernobyl"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Description = "Efter att hans bror har tagit livet av sig tar stjärnkocken Carmy...",
-                            Format = "Serie",
-                            ImageUrl = "thebear.webp",
-                            LogoUrl = "disney.jfif",
-                            Title = "The Bear"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Description = "Peter Quill, som fortfarande sörjer förlusten av Gamora, måste ...",
-                            Format = "Film",
-                            ImageUrl = "guardiansvol3.jpg",
-                            LogoUrl = "disney.jfif",
-                            Title = "Guardians of the Galaxy Vol. 3"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Description = "Äventyraren Peter Quill stjäl en eftertraktad himlakropp från Ronan, s...",
-                            Format = "Film",
-                            ImageUrl = "guardians.jfif",
-                            LogoUrl = "disney.jfif",
-                            Title = "Guardians of the Galaxy"
                         });
                 });
 

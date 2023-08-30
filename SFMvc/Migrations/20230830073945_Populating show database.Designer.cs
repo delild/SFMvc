@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SFMvc.Models;
 
@@ -11,9 +12,11 @@ using SFMvc.Models;
 namespace SFMvc.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20230830073945_Populating show database")]
+    partial class Populatingshowdatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -258,8 +261,8 @@ namespace SFMvc.Migrations
                             Id = 1,
                             Description = "Följ de offentliga tjänstemännen i staden Pawnee...",
                             Format = "Serie",
-                            ImageUrl = "parksandrecreation.jfif",
-                            LogoUrl = "netflix.png",
+                            ImageUrl = "https://s2.dmcdn.net/v/UNvgl1ZRLtcvhWl5m/x480",
+                            LogoUrl = "https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456",
                             Title = "Parks and Recreation"
                         },
                         new
@@ -267,8 +270,8 @@ namespace SFMvc.Migrations
                             Id = 2,
                             Description = "I detta drama skildras politiskt maktspel och romantik...",
                             Format = "Serie",
-                            ImageUrl = "thecrown.jpg",
-                            LogoUrl = "netflix.png",
+                            ImageUrl = "https://s2.dmcdn.net/v/UNvgl1ZRLtcvhWl5m/x480",
+                            LogoUrl = "https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456",
                             Title = "The Crown"
                         },
                         new
@@ -276,8 +279,8 @@ namespace SFMvc.Migrations
                             Id = 3,
                             Description = "20 år efter att ett muterat svampspor-virus förvandlat större delen av...",
                             Format = "Serie",
-                            ImageUrl = "thelastofus.webp",
-                            LogoUrl = "hbo.jfif",
+                            ImageUrl = "https://s2.dmcdn.net/v/UNvgl1ZRLtcvhWl5m/x480",
+                            LogoUrl = "https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456",
                             Title = "The Last of us"
                         },
                         new
@@ -285,54 +288,27 @@ namespace SFMvc.Migrations
                             Id = 4,
                             Description = "In a uniquely hilarious odyssey of self-discovery and cultural observation",
                             Format = "Serie",
-                            ImageUrl = "howtowithjohnwilson.jpg",
-                            LogoUrl = "hbo.jfif",
+                            ImageUrl = "https://s2.dmcdn.net/v/UNvgl1ZRLtcvhWl5m/x480",
+                            LogoUrl = "https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456",
                             Title = "How To with John Wilson"
                         },
                         new
                         {
                             Id = 5,
-                            Description = "Beväpnad med bara ett ord - \"Tenet\" - reser protagonisten i en skuggvärld...",
-                            Format = "Film",
-                            ImageUrl = "tenet.jpg",
-                            LogoUrl = "hbo.jfif",
-                            Title = "Tenet"
+                            Description = "In a uniquely hilarious odyssey of self-discovery and cultural observation",
+                            Format = "Serie",
+                            ImageUrl = "https://s2.dmcdn.net/v/UNvgl1ZRLtcvhWl5m/x480",
+                            LogoUrl = "https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456",
+                            Title = "How To with John Wilson"
                         },
                         new
                         {
                             Id = 6,
                             Description = "En dramaserie från HBO i fem delar som följer händelserna kring kärnkraftsolyckan i Tjernobyl...",
                             Format = "Miniserie",
-                            ImageUrl = "chernobyl.webp",
-                            LogoUrl = "hbo.jfif",
+                            ImageUrl = "https://s2.dmcdn.net/v/UNvgl1ZRLtcvhWl5m/x480",
+                            LogoUrl = "/wwwroot/Images/hbo.jfif",
                             Title = "Chernobyl"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Description = "Efter att hans bror har tagit livet av sig tar stjärnkocken Carmy...",
-                            Format = "Serie",
-                            ImageUrl = "thebear.webp",
-                            LogoUrl = "disney.jfif",
-                            Title = "The Bear"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Description = "Peter Quill, som fortfarande sörjer förlusten av Gamora, måste ...",
-                            Format = "Film",
-                            ImageUrl = "guardiansvol3.jpg",
-                            LogoUrl = "disney.jfif",
-                            Title = "Guardians of the Galaxy Vol. 3"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Description = "Äventyraren Peter Quill stjäl en eftertraktad himlakropp från Ronan, s...",
-                            Format = "Film",
-                            ImageUrl = "guardians.jfif",
-                            LogoUrl = "disney.jfif",
-                            Title = "Guardians of the Galaxy"
                         });
                 });
 
