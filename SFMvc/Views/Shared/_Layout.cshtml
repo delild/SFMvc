@@ -1,29 +1,41 @@
 ﻿<!DOCTYPE html>
 
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"/>  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
     <link href="~/StyleSheets/Styles.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body class="website-background">
-    <nav>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #101C2C;">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">Stream-Team</a>
 
-        <a asp-controller="Home" asp-action="Index">Stream-Team</a>
-        @if (User.Identity.IsAuthenticated)
-        {
-            <a asp-controller="Home" asp-action="Logout">Sign out</a>
-            <p>Logged in user: @User.Identity.Name</p>
-            <a asp-controller="Home" asp-action="Personal">My page</a>
-        }
-        else
-        {
-            <a asp-controller="Home" asp-action="Login">Login</a>
-            <a asp-controller="Home" asp-action="Register">Register</a>
-        }
+            @if (User.Identity.IsAuthenticated)
+            {
+                <!-- My watchlist -->
+                <a class="nav-link" asp-controller="Home" asp-action="Watchlist">My Watchlist</a>
+            }
 
-        
+            <div class="ms-auto">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <!-- When user is logged in -->
+                    <a asp-controller="Home" asp-action="Logout" class="btn btn-outline-light me-2">Sign out</a>
+                    <span class="navbar-text">Logged in as: @User.Identity.Name</span>
+                }
+                else
+                {
+                    <!-- When user is not logged in -->
+                    <a asp-controller="Home" asp-action="Login" class="btn btn-outline-light me-2">Login</a>
+                    <a asp-controller="Home" asp-action="Register" class="btn btn-outline-light">Register</a>
+                }
+            </div>
+        </div>
     </nav>
     <div>
         @RenderBody()

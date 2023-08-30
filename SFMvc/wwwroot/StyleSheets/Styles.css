@@ -1,6 +1,6 @@
 ﻿.center-cropped {
     width: 100%;
-    height: 300px;
+    height: 250px;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -9,15 +9,27 @@
     background-color: #101C2C;
 }
 .card {
-    margin: 5px;
+    margin: 5px 0;
     border: none;
     background-color: #101C2C;
+    width: 100%;
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
 }
-.card-body{
 
+.card-body {
     background-color: rgba(1,46,64,0.5);
     color: #e2e3e4;
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
 }
+
+.card-text {
+    flex-grow: 1; /* This makes the text element grow to fill any available space within .card-body */
+}
+
 .btn-primary {
     background-color: #024959;
     border-color: #024959;
@@ -26,5 +38,53 @@
     background-color: #024959;
     border-color: rgba(255, 195, 0, 0.5);
     box-shadow: rgba(255, 195, 0, 0.3) 0px 7px 29px 0px;
-    /* border-color: #e84217;*/
+  
 }
+
+.overall-container {
+    margin-top:170px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 100px; /*mellanrum search och filmer*/
+}
+
+.my-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.my-col {
+    flex: 0 0 calc(25% - 10px);
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex; 
+}
+
+
+.btn-outline-light:hover {
+    box-shadow: 0px 0px 10px #E84217; /* Adjust the shadow spread (10px here) if you want it more or less pronounced */
+    transition: box-shadow 0.3s ease-in-out;
+    background-color: #101C2C;
+    color:white;
+    border:none;
+}
+
+.nav-link{
+    color:white;
+}
+
+.nav-link:hover {
+        color: white;
+    }
+

@@ -4,15 +4,17 @@
 
 @model IndexVM[]
 
-<input type="text" id="searchText" placeholder="Search by Title..." onkeyup="search()">
-<button onclick="search()">Search</button>
-
-<div id="searchResults" style="display:flex; flex-wrap: wrap; justify-content: center;">
+<div class="overall-container">
+    <div class="search-container">
+        <input type="text" id="searchText" placeholder="Search by Title..." onkeyup="search()">
+        <button onclick="search()">Search</button>
+    </div>
+<div id="searchResults" class="my-container">
 
 </div>
 
 <div id="noResultsMessage" style="display: none;">No matching results found.</div>
-
+</div>
 <script>
     function search() {
         var searchText = document.getElementById("searchText").value.toLowerCase();
@@ -28,9 +30,9 @@
          if ("@item.Title".toLowerCase().includes(searchText)) {
          resultsFound = true;
          searchResultsContainer.innerHTML +=
-             `<div class="card" style="width: 18rem;">
+             `<div class="my-col">
+                <div class="card">
                 <div class="center-cropped card-img-top" style="background-image: url('/Images/@item.ImageUrl');"></div>
-                
                 <div class="card-body" style="display: flex; flex-direction: column;">
                   <h2 class="card-title">@item.Title</h2>
                   <p class="format">@item.Format</p>
@@ -40,7 +42,9 @@
                       <a asp-controller="Home"; asp-action="AddToWatchList"; asp-route-id="@item.Id" class="btn btn-primary">Add to watch list</a>
                   </div>
                 </div>
-             </div>`;
+             </div>
+           </div>
+             `;
          }
         </text>
     }
