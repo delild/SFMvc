@@ -93,6 +93,14 @@ namespace SFMvc.Models
             context.SaveChanges();
         }
 
+        internal void RemoveFromWatchList(int id)
+        {
+            var itemtoremove1 = context.Shows2Users.SingleOrDefault(o => o.ApplicationUserId == userId && o.ShowId == id);
+            context.Shows2Users.Remove(itemtoremove1);
+
+            context.SaveChanges();
+        }
+
         internal PersonalVM GetMyWatchList()
         {
             var movies = context.Shows2Users.Where(o => o.ApplicationUserId == userId).ToList();

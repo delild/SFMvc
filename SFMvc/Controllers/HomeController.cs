@@ -30,6 +30,13 @@ namespace SFMvc.Controllers
             return RedirectToAction("personal");
         }
 
+        [HttpGet("personal/{id}")]
+        public IActionResult RemoveFromWatchList(int id)
+        {
+            dataService.RemoveFromWatchList(id);
+            return RedirectToAction("personal");
+        }
+
 
         [HttpGet("login")]
         public IActionResult Login()
