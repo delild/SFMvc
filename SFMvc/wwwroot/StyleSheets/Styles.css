@@ -5,3 +5,26 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.website-background {
+    background-color: #101C2C;
+}
+.card {
+    margin: 5px;
+    border: none;
+    background-color: #101C2C;
+}
+.card-body{
+
+    background-color: rgba(1,46,64,0.5);
+    color: #e2e3e4;
+}
+.btn-primary {
+    background-color: #024959;
+    border-color: #024959;
+}
+.btn:hover {
+    background-color: #024959;
+    border-color: rgba(255, 195, 0, 0.5);
+    box-shadow: rgba(255, 195, 0, 0.3) 0px 7px 29px 0px;
+    /* border-color: #e84217;*/
+}
