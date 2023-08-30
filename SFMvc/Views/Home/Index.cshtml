@@ -20,33 +20,31 @@
         var noResultsMessage = document.getElementById("noResultsMessage");
         searchResultsContainer.innerHTML = "";
         noResultsMessage.style.display = "none";
-
         var resultsFound = false;
 
     @foreach (var item in Model)
     {
         <text>
-                if ("@item.Title".toLowerCase().includes(searchText)) {
-                resultsFound = true;
-                searchResultsContainer.innerHTML += `
-                           <div class="card" style="width: 18rem;">
-                              <div class="center-cropped card-img-top" style="background-image: url('/Images/@item.ImageUrl');"></div>
-                              
-                              <div class="card-body" style="display: flex; flex-direction: column;">
-                                <h2 class="card-title">@item.Title</h2>
-                                <p class="format">@item.Format</p>
-                                <p class="card-text" style="flex-grow: 1;"></p>
-                                <div style="display: flex; justify-content: space-between; align-items: center;">
-                                    <img src="/Images/@item.LogoUrl" style="height:50px;" />
-                                            <a asp-controller="Home"; asp-action="AddToWatchList"; asp-route-id="@item.Id" class="btn btn-primary">Add to watch list</a>
-                                </div>
-                              </div>
-                           </div>`;
-                       }
+         if ("@item.Title".toLowerCase().includes(searchText)) {
+         resultsFound = true;
+         searchResultsContainer.innerHTML +=
+             `<div class="card" style="width: 18rem;">
+                <div class="center-cropped card-img-top" style="background-image: url('/Images/@item.ImageUrl');"></div>
+                
+                <div class="card-body" style="display: flex; flex-direction: column;">
+                  <h2 class="card-title">@item.Title</h2>
+                  <p class="format">@item.Format</p>
+                  <p class="card-text" style="flex-grow: 1;"></p>
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                      <img src="/Images/@item.LogoUrl" style="height:50px;" />
+                      <a asp-controller="Home"; asp-action="AddToWatchList"; asp-route-id="@item.Id" class="btn btn-primary">Add to watch list</a>
+                  </div>
+                </div>
+             </div>`;
+         }
         </text>
     }
-
-            if (!resultsFound) {
+        if (!resultsFound) {
             noResultsMessage.style.display = "block";
         }
     }
