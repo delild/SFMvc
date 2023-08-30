@@ -38,7 +38,7 @@
     background-color: #024959;
     border-color: rgba(255, 195, 0, 0.5);
     box-shadow: rgba(255, 195, 0, 0.3) 0px 7px 29px 0px;
-  
+    /* border-color: #e84217;*/
 }
 
 .overall-container {
@@ -88,8 +88,6 @@
         color: white;
     }
 
-    /* border-color: #e84217;*/
-}
 .login {
     text-align: center;
     display: flex;
