@@ -6,7 +6,12 @@
 
 <div class="overall-container">
     <div class="search-container">
-        <input type="text" id="searchText" placeholder="Search by Title..." onkeyup="search()">
+
+        <div class="input-group input-group-lg">
+            <input type="text" class="form-control" id="searchText" placeholder="Search by Title..." onkeyup="search()">
+        </div>
+
+
         <button onclick="search()">Search</button>
     </div>
 <div id="searchResults" class="my-container">
@@ -39,7 +44,7 @@
                   <p class="card-text" style="flex-grow: 1;"></p>
                   <div style="display: flex; justify-content: space-between; align-items: center;">
                       <img src="/Images/@item.LogoUrl" style="height:50px;" />
-                      <a asp-controller="Home"; asp-action="AddToWatchList"; asp-route-id="@item.Id" class="btn btn-primary">Add to watch list</a>
+                      <a class="btn btn-primary" onclick="GetButtonText(@item.Id)"><div id="buttonText_@item.Id">Add to watch list</div></a>
                   </div>
                 </div>
              </div>
@@ -53,6 +58,22 @@
         }
     }
 
+    
+
+    function GetButtonText(id) {
+        console.log(id)
+        fetch("/AddToWatchList/" + id,
+            {
+                method: "GET",
+            })
+            .then(result => result.text())
+            .then(html => {
+                const buttonDiv = document.getElementById("buttonText_" + id)
+                console.log(buttonDiv)
+                buttonDiv.innerHTML = html
+            })  
+            
+    }
     
     search();
 </script>

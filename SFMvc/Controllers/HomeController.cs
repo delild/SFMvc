@@ -23,11 +23,15 @@ namespace SFMvc.Controllers
             return View(model);
         }
 
-        [HttpGet("index/{id}")]
+        [HttpGet("AddToWatchList/{id}")]
         public IActionResult AddToWatchList(int id)
         {
-            dataService.AddToWatchList(id);
-            return Ok("The show was added");
+            if (!dataService.IsAlreadyInWatchList(id))
+            {
+                dataService.AddToWatchList(id);
+                return PartialView("_ButtonAdded");
+            }
+            return PartialView("_ButtonAdded");
         }
 
         [HttpGet("personal/{id}")]

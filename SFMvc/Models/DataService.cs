@@ -85,33 +85,29 @@ namespace SFMvc.Models
             await signInManager.SignOutAsync();
         }
 
+        public bool IsAlreadyInWatchList(int id)
+        {
+            bool isAlreadyInWatchList = false;
+            if (context.Shows2Users.Count() > 0)
+            {
+                foreach (var item in context.Shows2Users)
+                {
+                    if (item.ApplicationUserId == userId && item.ShowId == id)
+                    {
+                        isAlreadyInWatchList = true;
+                        break;
+                    }
+                }
+            }
+            return isAlreadyInWatchList;
+        }
+
         public void AddToWatchList(int id)
         {
-            bool isAlreadyThere = false;    
-            if(context.Shows2Users.Count() > 0)
-            { 
-               foreach (var item in context.Shows2Users) 
-               {
-                   if (item.ApplicationUserId == userId && item.ShowId == id)
-                   {
-                        isAlreadyThere = true;  
-                        break;
-                         
-                   }
-
-               }
-            }
-            if (isAlreadyThere == false)
-            {
-
               context.Shows2Users.Add(new Shows2Users
               { ApplicationUserId = userId, ShowId = id });
 
               context.SaveChanges();
-            }
-
-
-
         }
 
         internal void RemoveFromWatchList(int id)
