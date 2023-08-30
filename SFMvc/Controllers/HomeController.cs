@@ -27,7 +27,7 @@ namespace SFMvc.Controllers
         public IActionResult AddToWatchList(int id)
         {
             dataService.AddToWatchList(id);
-            return RedirectToAction("personal");
+            return Ok("The show was added");
         }
 
         [HttpGet("personal/{id}")]
