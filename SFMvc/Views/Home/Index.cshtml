@@ -7,9 +7,6 @@
 
 <div class="overall-container">
     
-    <div style="position:relative">
-    <div id="loginPlaceholder" style="position: absolute; top:10px; left:10px; display:none;"></div>
-    </div>
 
     <div class="search-container">
 
@@ -26,6 +23,8 @@
 
 <div id="noResultsMessage" style="display: none;">No matching results found.</div>
 </div>
+
+
 <script>
     function search() {
         var searchText = document.getElementById("searchText").value.toLowerCase();
@@ -51,7 +50,15 @@
                   <p class="card-text" style="flex-grow: 1;"></p>
                   <div style="display: flex; justify-content: space-between; align-items: center;">
                       <img src="/Images/@item.LogoUrl" style="height:50px;" />
-                              <a class="btn btn-primary" onclick="AddToWatchList(@item.Id)"><div id="buttonText_@item.Id"></div></a>
+
+                               @if (User.Identity.IsAuthenticated)
+                                            {
+                                                <a class="btn btn-primary" onclick="AddToWatchList(@item.Id)"><div id="buttonText_@item.Id"></div></a>
+                                            }
+                                            else
+                                            {
+                                                <a class="btn btn-primary" onclick="redirecttologin()"><div id="buttonText_@item.Id"></div></a>
+                                }
                   </div>
                 </div>
              </div>
@@ -77,16 +84,9 @@
                 })
                 .then(result => result.text())
                 .then(html => {
-                    if (html.includes("login")) {
-                        console.log(html)
-                        const loginSquare = document.getElementById("loginPlaceholder")
-                        loginSquare.innerHTML = html
-                        loginSquare.style = "display:block"
-                    } else {
-                        console.log(html)
+                   
                         const buttonDiv = document.getElementById("buttonText_" + id)
                         buttonDiv.innerHTML = html
-                    }
                 })
     }
 
@@ -103,9 +103,9 @@
             
     }
 
-    function removeWindow() {
-        const windowtoclose = document.getElementById("loginPlaceholder")
-        windowtoclose.style="display:none"
+
+    function redirecttologin() {
+        document.location.href="/Login"
     }
 
     search();
