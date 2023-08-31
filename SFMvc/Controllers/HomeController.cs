@@ -67,6 +67,11 @@ namespace SFMvc.Controllers
             if (!ModelState.IsValid)
                 return View();
 
+            if (viewModel.UserName.Contains("@"))
+            {
+                viewModel.UserName = dataService.GetUserNameByEmail(viewModel.UserName);
+            }
+
             // Check if credentials is valid (and set auth cookie)
             var errorMessage = await dataService.TryLoginAsync(viewModel);
             if (errorMessage != null)

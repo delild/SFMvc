@@ -131,5 +131,10 @@ namespace SFMvc.Models
             var model = new PersonalVM { MyWatchList = shows };
             return model;
         }
+
+        internal string GetUserNameByEmail(string email)
+        {
+            return context.Users.SingleOrDefault(o => o.Email == email).UserName;
+        }
     }
 }
