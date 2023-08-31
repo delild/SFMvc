@@ -42,6 +42,8 @@
 }
 
 .overall-container {
+    margin:170px 0;
+    padding:0;
     margin-top:170px;
     display: flex;
     flex-direction: column;
@@ -58,12 +60,13 @@
 }
 
 .my-container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px; 
 }
+
 
 .my-col {
     flex: 0 0 calc(25% - 10px);
@@ -136,4 +139,42 @@
 .btn-secondary:hover {
    
     box-shadow: rgba(255, 195, 0, 0.3) 0px 0px 29px 10px;
+}
+
+.remove-btn {
+    width: 200px; 
+    height: 50px;
+    background-color: #024959;
+    border-color: #024959;
+    color: #e2e3e4;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+    transition: background-color 0.3s, border-color 0.3s; 
+}
+
+.remove-btn:hover {
+    background-color: #024959;
+    border-color: rgba(255, 195, 0, 0.5);
+    box-shadow: rgba(255, 195, 0, 0.3) 0px 7px 29px 0px;
+}
+
+.logo-img {
+    height: 50px;
+    margin-right: 20px; 
+}
+
+
+/* mindre skärm/browser */
+@media (max-width: 1200px) {
+    .my-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* för mobil */
+@media (max-width: 800px) {
+    .my-container {
+        grid-template-columns: 1fr;
+    }
 }
