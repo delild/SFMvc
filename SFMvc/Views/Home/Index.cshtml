@@ -4,8 +4,13 @@
 
 @model IndexVM[]
 
+
 <div class="overall-container">
-    <div id="loginPlaceholder"></div>
+    
+    <div style="position:relative">
+    <div id="loginPlaceholder" style="position: absolute; top:10px; left:10px; display:none;"></div>
+    </div>
+
     <div class="search-container">
 
         <div class="input-group input-group-lg">
@@ -76,6 +81,7 @@
                         console.log(html)
                         const loginSquare = document.getElementById("loginPlaceholder")
                         loginSquare.innerHTML = html
+                        loginSquare.style = "display:block"
                     } else {
                         console.log(html)
                         const buttonDiv = document.getElementById("buttonText_" + id)
@@ -97,7 +103,10 @@
             
     }
 
-
+    function removeWindow() {
+        const windowtoclose = document.getElementById("loginPlaceholder")
+        windowtoclose.style="display:none"
+    }
 
     search();
 

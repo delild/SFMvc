@@ -1,6 +1,8 @@
 ﻿@model LoginVM
-
+<div class="card">
+    <div class="card-body">
 <h1 class="login">Log In</h1>
+<button onclick="removeWindow()">X</button>
 <form asp-controller="Home" asp-action="Login" class="login">
     <div class="login">
         <input class="login-input username-input" asp-for="UserName" placeholder="Username" />
@@ -15,3 +17,5 @@
 
 </form>
 <a class="login dont-link" asp-controller="Home" asp-action="Register">Don't have an account yet?</a>
+    </div>
+</div>
