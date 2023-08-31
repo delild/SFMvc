@@ -31,7 +31,7 @@ namespace SFMvc.Controllers
                 dataService.AddToWatchList(id);
                 return PartialView("_ButtonAdded");
             }
-            return PartialView("_ButtonAdded");
+            return PartialView("_ButtonNotAdded");
         }
 
         [HttpGet("personal/{id}")]
