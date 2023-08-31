@@ -74,11 +74,12 @@
 
 
 .btn-outline-light:hover {
-    box-shadow: 0px 0px 10px #E84217; 
+    box-shadow: rgba(255, 195, 0, 0.3) 0px 7px 29px 0px;
     transition: box-shadow 0.3s ease-in-out;
     background-color: #101C2C;
-    color:white;
-    border:none;
+    color: white;
+    border-color: yellow;
+    /*border-color: rgba(255, 195, 0,1);*/
 }
 
 .nav-link{

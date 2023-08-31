@@ -5,7 +5,7 @@
 @foreach (var item in Model.MyWatchList)
 {
 	<h2>@item.Title</h2>
-	<img src="@item.ImageUrl">
+	<img src="/Images/@item.ImageUrl">
 	<a asp-controller="Home" ; asp-action="RemoveFromWatchList"; asp-route-id="@item.Id" class="btn btn-primary">Remove from watch list</a>
 
 }
