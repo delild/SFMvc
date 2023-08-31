@@ -1,0 +1,17 @@
+﻿@model LoginVM
+
+<h1 class="login">Log In</h1>
+<form asp-controller="Home" asp-action="Login" class="login">
+    <div class="login">
+        <input class="login-input username-input" asp-for="UserName" placeholder="Username" />
+        <span asp-validation-for="UserName"></span>
+
+        <input class="login-input" asp-for="Password" placeholder="Password" />
+        <span asp-validation-for="Password"></span>
+        <br />
+    </div>
+    @*     <div asp-validation-summary="All"></div> *@
+    <input class="login-button btn-secondary" type="submit" value="Log In" />
+
+</form>
+<a class="login dont-link" asp-controller="Home" asp-action="Register">Don't have an account yet?</a>

@@ -27,6 +27,10 @@ namespace SFMvc.Controllers
         [HttpGet("AddToWatchList/{id}")]
         public IActionResult AddToWatchList(int id)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return PartialView("_Login");
+            }
             if (!dataService.IsAlreadyInWatchList(id))
             {
                 dataService.AddToWatchList(id);

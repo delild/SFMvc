@@ -5,6 +5,7 @@
 @model IndexVM[]
 
 <div class="overall-container">
+    <div id="loginPlaceholder"></div>
     <div class="search-container">
 
         <div class="input-group input-group-lg">
@@ -65,21 +66,25 @@
  
 
     function AddToWatchList(id) {
-        console.log(id)
-        fetch("/AddToWatchList/" + id,
-            {
-                method: "GET",
-            })
-            .then(result => result.text())
-            .then(html => {
-                const buttonDiv = document.getElementById("buttonText_" + id)
-                console.log(buttonDiv)
-                buttonDiv.innerHTML = html
-            })  
+            fetch("/AddToWatchList/" + id,
+                {
+                    method: "GET",
+                })
+                .then(result => result.text())
+                .then(html => {
+                    if (html.includes("login")) {
+                        console.log(html)
+                        const loginSquare = document.getElementById("loginPlaceholder")
+                        loginSquare.innerHTML = html
+                    } else {
+                        console.log(html)
+                        const buttonDiv = document.getElementById("buttonText_" + id)
+                        buttonDiv.innerHTML = html
+                    }
+                })
     }
 
     function GetButtonText(id) {
-        console.log(id)
         fetch("/GetButtonText/" + id,
             {
                 method: "GET",
@@ -87,7 +92,6 @@
             .then(result => result.text())
             .then(html => {
                 const buttonDiv = document.getElementById("buttonText_" + id)
-                console.log(buttonDiv)
                 buttonDiv.innerHTML = html
             })  
             
