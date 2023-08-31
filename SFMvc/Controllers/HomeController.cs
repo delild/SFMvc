@@ -86,8 +86,6 @@ namespace SFMvc.Controllers
         }
 
 
-
-
         
         [HttpGet("register")]
         public IActionResult Register()
@@ -114,7 +112,7 @@ namespace SFMvc.Controllers
             }
 
             // Redirect user
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Login));
         }
 
         [Authorize]
