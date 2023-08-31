@@ -16,15 +16,15 @@ namespace SFMvc.Controllers
 		[HttpGet]
 		public async Task<IActionResult> SearchAsync(string searchText)
 		{
-			var filteredWebsites = await dataService.GetAllShowsAsync();
+			var filteredShows = await dataService.GetAllShowsAsync();
 
-				filteredWebsites
+				filteredShows
 				.Where(show =>
 					show.Title.ToLower().Contains(searchText.ToLower()))/* ||*/
 					//brand.ProductName.ToLower().Contains(searchText.ToLower()))
 				.ToList();
 
-			return PartialView("_SearchResultsPartial", filteredWebsites);
+			return PartialView("_SearchResultsPartial", filteredShows);
 		}
 	}
 }

@@ -14,9 +14,10 @@
     {
         <div class="my-col">
             <div class="card">
-                <div class="center-cropped card-img-top" style="background-image: url('/Images/@item.ImageUrl');"></div>
+                <a asp-controller="Home" asp-action="Details" asp-route-id="@item.Id">
+                <div class="center-cropped card-img-top" style="background-image: url('/Images/@item.ImageUrl');"></div></a>
                 <div class="card-body" style="display: flex; flex-direction: column;">
-                    <h2 class="card-title">@item.Title</h2>
+                        <a asp-controller="Home" asp-action="Details" asp-route-id="@item.Id" style="text-decoration:none; color:#E2E3E4"><h2 class="card-title">@item.Title</h2></a>
                     <p class="format">@item.Format</p>
                     <p class="card-text" style="flex-grow: 1;"></p>
                     <div style="display: flex; justify-content: space-between; align-items: center;">

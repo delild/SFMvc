@@ -44,6 +44,7 @@ namespace SFMvc.Models
                     Format = x.Format,
                     ImageUrl = x.ImageUrl,
                     LogoUrl = x.LogoUrl,
+                    StreamingUrl = x.StreamingUrl,
                 })
                 .ToArrayAsync();
         }
@@ -136,6 +137,21 @@ namespace SFMvc.Models
         internal string GetUserNameByEmail(string email)
         {
             return context.Users.SingleOrDefault(o => o.Email == email).UserName;
+        }
+
+        internal async Task<DetailsVM> GetMovieDetailsAsync(int id)
+        {
+            return await context.Shows
+                .Where(o => o.Id == id)
+                .Select(x => new DetailsVM
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    Description = x.Description,
+                    Format = x.Format,
+                    ImageUrl = x.ImageUrl,
+                    LogoUrl = x.LogoUrl,
+                }).FirstAsync();
         }
     }
 }

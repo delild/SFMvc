@@ -8,6 +8,9 @@
         public string Format { get; set; }
         public string ImageUrl { get; set; }
         public string LogoUrl { get; set; }
+        public string? StreamingUrl { get; set; }
         public List<Shows2Users> UsersThatLikeMe { get; set; }
+
+
     }
 }

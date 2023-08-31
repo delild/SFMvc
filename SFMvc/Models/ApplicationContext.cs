@@ -21,8 +21,8 @@ namespace SFMvc.Models
 
             // Specificerar data som en specific tabellska för-populeras med
             modelBuilder.Entity<Show>().HasData(
-                new Show { Id = 1, Title = "Parks and Recreation", Description = "Följ de offentliga tjänstemännen i staden Pawnee...", Format = "Serie", ImageUrl= "parksandrecreation.jfif", LogoUrl= "netflix.png" },
-                new Show { Id = 2, Title = "The Crown", Description = "I detta drama skildras politiskt maktspel och romantik...", Format = "Serie", ImageUrl= "thecrown.jpg", LogoUrl= "netflix.png" },
+                new Show { Id = 1, Title = "Parks and Recreation", Description = "Följ de offentliga tjänstemännen i staden Pawnee...", Format = "Serie", ImageUrl= "parksandrecreation.jfif", LogoUrl= "netflix.png", StreamingUrl= "https://www.netflix.com/se/" },
+                new Show { Id = 2, Title = "The Crown", Description = "I detta drama skildras politiskt maktspel och romantik...", Format = "Serie", ImageUrl= "thecrown.jpg", LogoUrl= "netflix.png", StreamingUrl = "https://www.netflix.com/se/" },
                 new Show { Id = 3, Title = "The Last of us", Description= "20 år efter att ett muterat svampspor-virus förvandlat större delen av...", Format = "Serie", ImageUrl= "thelastofus.webp", LogoUrl= "hbo.jfif" },
                 new Show { Id = 4, Title = "How To with John Wilson", Description= "In a uniquely hilarious odyssey of self-discovery and cultural observation", Format = "Serie", ImageUrl= "howtowithjohnwilson.jpg", LogoUrl= "hbo.jfif" },
                 new Show { Id = 5, Title = "Tenet", Description= "Beväpnad med bara ett ord - \"Tenet\" - reser protagonisten i en skuggvärld...", Format = "Film", ImageUrl= "tenet.jpg", LogoUrl= "hbo.jfif" },
