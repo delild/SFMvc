@@ -64,6 +64,7 @@ namespace SFMvc.Models
             var user = new ApplicationUser
             {
                 UserName = viewModel.UserName,
+                Email = viewModel.Email,
             };
 
             IdentityResult result = await

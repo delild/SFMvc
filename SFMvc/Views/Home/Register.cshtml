@@ -4,13 +4,14 @@
 
     <input class="form-custom-input username-input" asp-for="UserName" placeholder="Username" />
     <span asp-validation-for="UserName"></span>
+    
+    <input class="form-custom-input username-input" asp-for="Email" placeholder="Email" />
+    <span asp-validation-for="Email"></span>
 
-
-    <input class="form-custom-input" asp-for="Password" placeholder="Password" />
+    <input class="form-custom-input username-input" asp-for="Password" placeholder="Password" />
     <span asp-validation-for="Password"></span>
 
-
-    <input class="form-custom-input" asp-for="PasswordRepeat" placeholder="Repeat password" />
+    <input class="form-custom-input username-input" asp-for="PasswordRepeat" placeholder="Repeat password" />
     <span asp-validation-for="PasswordRepeat"></span>
     <br />
     <div asp-validation-summary="All"></div>
