@@ -10,29 +10,26 @@
 </head>
 
 <body class="website-background">
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #101C2C;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #101C2C; border-bottom-style:solid; border-color:rgba(226, 227, 228, 0.3); border-width:thin;">
         <div class="container-fluid">
             <!-- Logo -->
-            <a class="navbar-brand" asp-controller="Home" asp-action="Index">Stream-Team</a>
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img src="~/Images/logo.png" style="height:50px; margin-left:20px;" /> <img src="~/Images/Name.png" style="height:20px; margin-left:10px; margin-top:6px;" /></a>
 
-            @if (User.Identity.IsAuthenticated)
-            {
-                <!-- My watchlist -->
-                <a class="nav-link" asp-controller="Home" asp-action="Personal">My Watchlist</a>
-            }
+          
 
             <div class="ms-auto">
                 @if (User.Identity.IsAuthenticated)
                 {
                     <!-- When user is logged in -->
+                    <a class="btn btn-outline-light me-2" asp-controller="Home" asp-action="Personal">My Page</a>
                     <a asp-controller="Home" asp-action="Logout" class="btn btn-outline-light me-2">Sign out</a>
-                    <span class="navbar-text">Logged in as: @User.Identity.Name</span>
+                    <span class="navbar-text" style="margin-right:30px;">Logged in as: @User.Identity.Name</span>
                 }
                 else
                 {
                     <!-- When user is not logged in -->
                     <a asp-controller="Home" asp-action="Login" class="btn btn-outline-light me-2">Login</a>
-                    <a asp-controller="Home" asp-action="Register" class="btn btn-outline-light">Register</a>
+                    <a asp-controller="Home" asp-action="Register" class="btn btn-outline-light" style="margin-right:30px;">Register</a>
                 }
             </div>
         </div>

@@ -73,6 +73,7 @@
     padding: 5px;
     box-sizing: border-box;
     display: flex; 
+    width:350px;
 }
 
 
@@ -80,17 +81,19 @@
     box-shadow: rgba(255, 195, 0, 0.3) 0px 7px 29px 0px;
     transition: box-shadow 0.3s ease-in-out;
     background-color: #101C2C;
-    color: white;
+    color: #E2E3E4;
     border-color: yellow;
     /*border-color: rgba(255, 195, 0,1);*/
 }
 
-.nav-link{
-    color:white;
+.nav-link {
+    color: #E2E3E4;
+    margin-right: 40px;
 }
 
-.nav-link:hover {
-        color: white;
+
+    .nav-link:hover {
+        background-color: rgba(255, 195, 0, 0.6);
     }
 
 .form-custom {
@@ -177,4 +180,10 @@
     .my-container {
         grid-template-columns: 1fr;
     }
+}
+
+.ms-auto {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
