@@ -23,6 +23,7 @@ namespace SFMvc.Controllers
             return View(model);
         }
 
+
         [HttpGet("AddToWatchList/{id}")]
         public IActionResult AddToWatchList(int id)
         {
@@ -33,6 +34,18 @@ namespace SFMvc.Controllers
             }
             return PartialView("_ButtonNotAdded");
         }
+
+
+        [HttpGet("GetButtonText/{id}")]
+        public IActionResult GetButtonText(int id)
+        {
+            if (dataService.IsAlreadyInWatchList(id))
+            {
+                return PartialView("_ButtonAdded");
+            }
+            return PartialView("_ButtonNotAdded");
+        }
+
 
         [HttpGet("personal/{id}")]
         public IActionResult RemoveFromWatchList(int id)

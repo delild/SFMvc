@@ -32,6 +32,7 @@
     @foreach (var item in Model)
     {
         <text>
+        GetButtonText(@item.Id);
          if ("@item.Title".toLowerCase().includes(searchText)) {
          resultsFound = true;
          searchResultsContainer.innerHTML +=
@@ -44,23 +45,26 @@
                   <p class="card-text" style="flex-grow: 1;"></p>
                   <div style="display: flex; justify-content: space-between; align-items: center;">
                       <img src="/Images/@item.LogoUrl" style="height:50px;" />
-                      <a class="btn btn-primary" onclick="GetButtonText(@item.Id)"><div id="buttonText_@item.Id">Add to watch list</div></a>
+                              <a class="btn btn-primary" onclick="AddToWatchList(@item.Id)"><div id="buttonText_@item.Id"></div></a>
                   </div>
                 </div>
              </div>
            </div>
              `;
          }
+        
         </text>
+
     }
         if (!resultsFound) {
             noResultsMessage.style.display = "block";
         }
+
+
     }
+ 
 
-    
-
-    function GetButtonText(id) {
+    function AddToWatchList(id) {
         console.log(id)
         fetch("/AddToWatchList/" + id,
             {
@@ -72,7 +76,26 @@
                 console.log(buttonDiv)
                 buttonDiv.innerHTML = html
             })  
+    }
+
+    function GetButtonText(id) {
+        console.log(id)
+        fetch("/GetButtonText/" + id,
+            {
+                method: "GET",
+            })
+            .then(result => result.text())
+            .then(html => {
+                const buttonDiv = document.getElementById("buttonText_" + id)
+                console.log(buttonDiv)
+                buttonDiv.innerHTML = html
+            })  
             
     }
+
+
+
     search();
+
+   
 </script>
