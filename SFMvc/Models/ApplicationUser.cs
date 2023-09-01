@@ -5,5 +5,6 @@ namespace SFMvc.Models
     public class ApplicationUser : IdentityUser
     {
         public List<Shows2Users> MyWatchList { get; set; }
+        public List<Comment> Comments { get; set; }
     }
 }
