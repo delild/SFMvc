@@ -8,7 +8,7 @@ namespace SFMvc.Views.Home
         public CommentVM[]? Comments { get; set; }
         //public List<string>? CommentsText { get; set; }
         //public List<string>? CommentsAuthor { get; set; }
-
+        public string Text { get; set; }
     }
 
     public class CommentVM

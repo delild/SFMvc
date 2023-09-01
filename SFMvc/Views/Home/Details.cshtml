@@ -19,3 +19,11 @@
         }     
     }
 </ul>
+<form asp-controller="Home" asp-action="SaveComment">
+
+    <h3>Write your Comment</h3>
+    <input asp-for="Text" placeholder="write your comment here" />
+    <span asp-validation-for="Text"></span>
+    <input type="submit" value="Post" />
+    
+</form>

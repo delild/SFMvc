@@ -167,20 +167,37 @@ namespace SFMvc.Models
 
                 item.Comments = comment
                 .Select(x => new CommentVM
-                    {
-                        Id = x.Id,
-                        Text = x.Text,
-                        Show = x.Show,
-                        ShowId = x.ShowId,
-                        Time = x.Time,
-                        User = x.User,
-                        UserId = x.UserId              
+                {
+                    Id = x.Id,
+                    Text = x.Text,
+                    Show = x.Show,
+                    ShowId = x.ShowId,
+                    Time = x.Time,
+                    User = x.User,
+                    UserId = x.UserId
                 })
                 .ToArray();
             }
 
 
+
             return item;
         }
+
+        public void AddToComments(Comment newComment)
+        {
+           
+            context.Comments.Add(newComment);
+                
+            context.SaveChanges();
+        }
+                
+
+               
+
+            
+
+
+
     }
 }

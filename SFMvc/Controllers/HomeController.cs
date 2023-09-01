@@ -138,6 +138,14 @@ namespace SFMvc.Controllers
             return View(model);
         }
 
+        [HttpPost("details")]
+        public IActionResult SaveComment(Comment comment)
+        {
+            dataService.AddToComments(comment);
+            return RedirectToAction(nameof(DetailsAsync));
+        }
+
+
 
     }
 }
