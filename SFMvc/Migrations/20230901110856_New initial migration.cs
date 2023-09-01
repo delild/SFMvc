@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace SFMvc.Migrations
 {
     /// <inheritdoc />
-    public partial class Initialmigration : Migration
+    public partial class Newinitialmigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -60,7 +62,12 @@ namespace SFMvc.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Format = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LogoUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    LogoUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StreamingUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LengthInMinutes = table.Column<int>(type: "int", nullable: true),
+                    NumberOfEpisodes = table.Column<int>(type: "int", nullable: true),
+                    NumberOfSeasons = table.Column<int>(type: "int", nullable: true),
+                    Year = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -174,6 +181,34 @@ namespace SFMvc.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Comments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Time = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ShowId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Comments_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Comments_Shows_ShowId",
+                        column: x => x.ShowId,
+                        principalTable: "Shows",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Shows2Users",
                 columns: table => new
                 {
@@ -197,6 +232,22 @@ namespace SFMvc.Migrations
                         principalTable: "Shows",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Shows",
+                columns: new[] { "Id", "Description", "Format", "ImageUrl", "LengthInMinutes", "LogoUrl", "NumberOfEpisodes", "NumberOfSeasons", "StreamingUrl", "Title", "Year" },
+                values: new object[,]
+                {
+                    { 1, "Följ de offentliga tjänstemännen i staden Pawnee...", "Serie", "parksandrecreation.jfif", null, "netflix.png", 124, 7, "https://www.netflix.com/se/", "Parks and Recreation", 2009 },
+                    { 2, "I detta drama skildras politiskt maktspel och romantik...", "Serie", "thecrown.jpg", null, "netflix.png", 60, 5, "https://www.netflix.com/se/", "The Crown", 2016 },
+                    { 3, "20 år efter att ett muterat svampspor-virus förvandlat större delen av...", "Serie", "thelastofus.webp", null, "hbo.jfif", 10, 1, "https://www.hbomax.com/se/sv", "The Last of us", 2023 },
+                    { 4, "In a uniquely hilarious odyssey of self-discovery and cultural observation", "Serie", "howtowithjohnwilson.jpg", null, "hbo.jfif", 18, 3, "https://www.hbomax.com/se/sv", "How To with John Wilson", 2020 },
+                    { 5, "Beväpnad med bara ett ord - \"Tenet\" - reser protagonisten i en skuggvärld...", "Film", "tenet.jpg", 150, "hbo.jfif", null, null, "https://www.hbomax.com/se/sv", "Tenet", 2020 },
+                    { 6, "En dramaserie från HBO i fem delar som följer händelserna kring kärnkraftsolyckan i Tjernobyl...", "Miniserie", "chernobyl.webp", null, "hbo.jfif", 5, null, "https://www.hbomax.com/se/sv", "Chernobyl", 2019 },
+                    { 7, "Efter att hans bror har tagit livet av sig tar stjärnkocken Carmy...", "Serie", "thebear.webp", null, "disney.png", 18, 2, "https://www.disneyplus.com/en-se", "The Bear", 2022 },
+                    { 8, "Peter Quill, som fortfarande sörjer förlusten av Gamora, måste ...", "Film", "guardiansvol3.jpg", 150, "disney.png", null, null, "https://www.disneyplus.com/en-se", "Guardians of the Galaxy Vol. 3", 2023 },
+                    { 9, "Äventyraren Peter Quill stjäl en eftertraktad himlakropp från Ronan, s...", "Film", "guardians.jfif", 122, "disney.png", null, null, "https://www.disneyplus.com/en-se", "Guardians of the Galaxy", 2014 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -239,6 +290,16 @@ namespace SFMvc.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Comments_ShowId",
+                table: "Comments",
+                column: "ShowId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Comments_UserId",
+                table: "Comments",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Shows2Users_ApplicationUserId",
                 table: "Shows2Users",
                 column: "ApplicationUserId");
@@ -266,6 +327,9 @@ namespace SFMvc.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Comments");
 
             migrationBuilder.DropTable(
                 name: "Shows2Users");

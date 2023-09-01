@@ -12,8 +12,8 @@ using SFMvc.Models;
 namespace SFMvc.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230830080337_Populating show database 4")]
-    partial class Populatingshowdatabase4
+    [Migration("20230901110856_New initial migration")]
+    partial class Newinitialmigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -223,6 +223,37 @@ namespace SFMvc.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("SFMvc.Models.Comment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ShowId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShowId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Comments");
+                });
+
             modelBuilder.Entity("SFMvc.Models.Show", b =>
                 {
                     b.Property<int>("Id")
@@ -243,13 +274,28 @@ namespace SFMvc.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("LengthInMinutes")
+                        .HasColumnType("int");
+
                     b.Property<string>("LogoUrl")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("NumberOfEpisodes")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("NumberOfSeasons")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StreamingUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -263,7 +309,11 @@ namespace SFMvc.Migrations
                             Format = "Serie",
                             ImageUrl = "parksandrecreation.jfif",
                             LogoUrl = "netflix.png",
-                            Title = "Parks and Recreation"
+                            NumberOfEpisodes = 124,
+                            NumberOfSeasons = 7,
+                            StreamingUrl = "https://www.netflix.com/se/",
+                            Title = "Parks and Recreation",
+                            Year = 2009
                         },
                         new
                         {
@@ -272,7 +322,11 @@ namespace SFMvc.Migrations
                             Format = "Serie",
                             ImageUrl = "thecrown.jpg",
                             LogoUrl = "netflix.png",
-                            Title = "The Crown"
+                            NumberOfEpisodes = 60,
+                            NumberOfSeasons = 5,
+                            StreamingUrl = "https://www.netflix.com/se/",
+                            Title = "The Crown",
+                            Year = 2016
                         },
                         new
                         {
@@ -281,7 +335,11 @@ namespace SFMvc.Migrations
                             Format = "Serie",
                             ImageUrl = "thelastofus.webp",
                             LogoUrl = "hbo.jfif",
-                            Title = "The Last of us"
+                            NumberOfEpisodes = 10,
+                            NumberOfSeasons = 1,
+                            StreamingUrl = "https://www.hbomax.com/se/sv",
+                            Title = "The Last of us",
+                            Year = 2023
                         },
                         new
                         {
@@ -290,7 +348,11 @@ namespace SFMvc.Migrations
                             Format = "Serie",
                             ImageUrl = "howtowithjohnwilson.jpg",
                             LogoUrl = "hbo.jfif",
-                            Title = "How To with John Wilson"
+                            NumberOfEpisodes = 18,
+                            NumberOfSeasons = 3,
+                            StreamingUrl = "https://www.hbomax.com/se/sv",
+                            Title = "How To with John Wilson",
+                            Year = 2020
                         },
                         new
                         {
@@ -298,8 +360,11 @@ namespace SFMvc.Migrations
                             Description = "Beväpnad med bara ett ord - \"Tenet\" - reser protagonisten i en skuggvärld...",
                             Format = "Film",
                             ImageUrl = "tenet.jpg",
+                            LengthInMinutes = 150,
                             LogoUrl = "hbo.jfif",
-                            Title = "Tenet"
+                            StreamingUrl = "https://www.hbomax.com/se/sv",
+                            Title = "Tenet",
+                            Year = 2020
                         },
                         new
                         {
@@ -308,7 +373,10 @@ namespace SFMvc.Migrations
                             Format = "Miniserie",
                             ImageUrl = "chernobyl.webp",
                             LogoUrl = "hbo.jfif",
-                            Title = "Chernobyl"
+                            NumberOfEpisodes = 5,
+                            StreamingUrl = "https://www.hbomax.com/se/sv",
+                            Title = "Chernobyl",
+                            Year = 2019
                         },
                         new
                         {
@@ -316,8 +384,12 @@ namespace SFMvc.Migrations
                             Description = "Efter att hans bror har tagit livet av sig tar stjärnkocken Carmy...",
                             Format = "Serie",
                             ImageUrl = "thebear.webp",
-                            LogoUrl = "disney.jfif",
-                            Title = "The Bear"
+                            LogoUrl = "disney.png",
+                            NumberOfEpisodes = 18,
+                            NumberOfSeasons = 2,
+                            StreamingUrl = "https://www.disneyplus.com/en-se",
+                            Title = "The Bear",
+                            Year = 2022
                         },
                         new
                         {
@@ -325,8 +397,11 @@ namespace SFMvc.Migrations
                             Description = "Peter Quill, som fortfarande sörjer förlusten av Gamora, måste ...",
                             Format = "Film",
                             ImageUrl = "guardiansvol3.jpg",
-                            LogoUrl = "disney.jfif",
-                            Title = "Guardians of the Galaxy Vol. 3"
+                            LengthInMinutes = 150,
+                            LogoUrl = "disney.png",
+                            StreamingUrl = "https://www.disneyplus.com/en-se",
+                            Title = "Guardians of the Galaxy Vol. 3",
+                            Year = 2023
                         },
                         new
                         {
@@ -334,8 +409,11 @@ namespace SFMvc.Migrations
                             Description = "Äventyraren Peter Quill stjäl en eftertraktad himlakropp från Ronan, s...",
                             Format = "Film",
                             ImageUrl = "guardians.jfif",
-                            LogoUrl = "disney.jfif",
-                            Title = "Guardians of the Galaxy"
+                            LengthInMinutes = 122,
+                            LogoUrl = "disney.png",
+                            StreamingUrl = "https://www.disneyplus.com/en-se",
+                            Title = "Guardians of the Galaxy",
+                            Year = 2014
                         });
                 });
 
@@ -412,6 +490,25 @@ namespace SFMvc.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("SFMvc.Models.Comment", b =>
+                {
+                    b.HasOne("SFMvc.Models.Show", "Show")
+                        .WithMany()
+                        .HasForeignKey("ShowId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SFMvc.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Show");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("SFMvc.Models.Shows2Users", b =>
