@@ -45,6 +45,9 @@ namespace SFMvc.Models
                     ImageUrl = x.ImageUrl,
                     LogoUrl = x.LogoUrl,
                     StreamingUrl = x.StreamingUrl,
+                    NumberOfSeasons = x.NumberOfSeasons,
+                    NumberOfEpisodes = x.NumberOfEpisodes,
+                    LengthInMinutes = x.LengthInMinutes,
                 })
                 .ToArrayAsync();
         }

@@ -47,7 +47,23 @@
                         <div class="center-cropped card-img-top" style="background-image: url('/Images/@item.ImageUrl');"></div></a>
                 <div class="card-body" style="display: flex; flex-direction: column;">
                         <a asp-controller="Home" asp-action="Details" asp-route-id="@item.Id" style="text-decoration:none; color:#E2E3E4"><h2 class="card-title">@item.Title</h2></a>
-                  <p class="format">@item.Format</p>
+                        @if (item.Format == "Serie")
+                        {
+                             <p><i> @item.NumberOfSeasons @(item.NumberOfSeasons > 1 ? "Seasons" : "Season")</i></p>
+                                 
+                        }
+                        @if (item.Format == "Miniserie")
+                        {
+                                  <p><i> @item.NumberOfEpisodes </i></p>
+
+                        }
+                        @if (item.Format == "Film")
+                        {
+                                   <p><i> @(item.LengthInMinutes / 60) h @(item.LengthInMinutes % 60) min</i></p>
+
+                        }
+
+
                   <p class="card-text" style="flex-grow: 1;"></p>
                   <div style="display: flex; justify-content: space-between; align-items: center;">
                               <a href="@item.StreamingUrl"><img src="/Images/@item.LogoUrl" style="height:50px;" class="center-cropped" /></a>
