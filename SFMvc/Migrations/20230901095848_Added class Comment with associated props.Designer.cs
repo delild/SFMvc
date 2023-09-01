@@ -12,7 +12,7 @@ using SFMvc.Models;
 namespace SFMvc.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230901094207_Added class Comment with associated props")]
+    [Migration("20230901095848_Added class Comment with associated props")]
     partial class AddedclassCommentwithassociatedprops
     {
         /// <inheritdoc />
@@ -495,13 +495,13 @@ namespace SFMvc.Migrations
             modelBuilder.Entity("SFMvc.Models.Comment", b =>
                 {
                     b.HasOne("SFMvc.Models.Show", "Show")
-                        .WithMany("Comments")
+                        .WithMany()
                         .HasForeignKey("ShowId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SFMvc.Models.ApplicationUser", "User")
-                        .WithMany("Comments")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -532,15 +532,11 @@ namespace SFMvc.Migrations
 
             modelBuilder.Entity("SFMvc.Models.ApplicationUser", b =>
                 {
-                    b.Navigation("Comments");
-
                     b.Navigation("MyWatchList");
                 });
 
             modelBuilder.Entity("SFMvc.Models.Show", b =>
                 {
-                    b.Navigation("Comments");
-
                     b.Navigation("UsersThatLikeMe");
                 });
 #pragma warning restore 612, 618
