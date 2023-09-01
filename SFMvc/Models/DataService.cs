@@ -109,10 +109,10 @@ namespace SFMvc.Models
 
         public void AddToWatchList(int id)
         {
-              context.Shows2Users.Add(new Shows2Users
-              { ApplicationUserId = userId, ShowId = id });
+            context.Shows2Users.Add(new Shows2Users
+            { ApplicationUserId = userId, ShowId = id });
 
-              context.SaveChanges();
+            context.SaveChanges();
         }
 
         internal void RemoveFromWatchList(int id)
@@ -130,7 +130,7 @@ namespace SFMvc.Models
             foreach (var item in movies)
             {
                 Show show = context.Shows.SingleOrDefault(o => o.Id == item.ShowId);
-				shows.Add(show);
+                shows.Add(show);
             }
 
             var model = new PersonalVM { MyWatchList = shows };
@@ -144,17 +144,43 @@ namespace SFMvc.Models
 
         internal async Task<DetailsVM> GetMovieDetailsAsync(int id)
         {
-            return await context.Shows
-                .Where(o => o.Id == id)
+            var item = await context.Shows
+                .Where(x => x.Id == id)
                 .Select(x => new DetailsVM
                 {
-                    Id = x.Id,
-                    Title = x.Title,
-                    Description = x.Description,
-                    Format = x.Format,
-                    ImageUrl = x.ImageUrl,
-                    LogoUrl = x.LogoUrl,
-                }).FirstAsync();
+                    Show = new ShowVM
+                    {
+                        Id = x.Id,
+                        Description = x.Description,
+                        Format = x.Format,
+                        ImageUrl = x.ImageUrl,
+                        LogoUrl = x.LogoUrl,
+                        Title = x.Title,
+                    }
+                }
+            ).FirstAsync();
+
+            var comment = await context.Comments
+                .Where(x => x.ShowId == id).ToArrayAsync();
+            if (comment.Count() > 0)
+            {
+
+                item.Comments = comment
+                .Select(x => new CommentVM
+                    {
+                        Id = x.Id,
+                        Text = x.Text,
+                        Show = x.Show,
+                        ShowId = x.ShowId,
+                        Time = x.Time,
+                        User = x.User,
+                        UserId = x.UserId              
+                })
+                .ToArray();
+            }
+
+
+            return item;
         }
     }
 }

@@ -1,8 +1,21 @@
 ﻿@model DetailsVM
 
 
-<h1>@Model.Title</h1>
-<p>@Model.Description</p>
-<p>@Model.Format</p>
-<img src="~/Images/@Model.ImageUrl" />
-<img src="~/Images/@Model.LogoUrl" />
+<h1 style="color:white">@Model.Show.Title</h1>
+<p style="color:white">@Model.Show.Description</p>
+<p style="color:white">@Model.Show.Format</p>
+<img style="width: 500px;" src="~/Images/@Model.Show.ImageUrl" />
+<img src="~/Images/@Model.Show.LogoUrl" />
+<ul>
+    @if (Model.Comments != null)
+    {
+        @foreach (var item in Model.Comments)
+        {
+            <li>
+                <div style="color:white">
+                    @item.Text
+                </div>
+            </li>
+        }     
+    }
+</ul>
