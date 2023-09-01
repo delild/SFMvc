@@ -168,13 +168,12 @@ namespace SFMvc.Models
                 item.Comments = comment
                 .Select(x => new CommentVM
                 {
-                    Id = x.Id,
+                    
                     Text = x.Text,
-                    Show = x.Show,
-                    ShowId = x.ShowId,
                     Time = x.Time,
-                    User = x.User,
-                    UserId = x.UserId
+                    
+                    
+                    
                 })
                 .ToArray();
             }
@@ -183,14 +182,22 @@ namespace SFMvc.Models
 
             return item;
         }
-
-        public void AddToComments(Comment newComment)
+        public void AddToComments(DetailsVM model, int showId)
         {
            
-            context.Comments.Add(newComment);
+            context.Comments.Add(new Comment
+            {
+                Text = model.Text,
+                Time = DateTime.Now,
+                UserId = userId,
+                ShowId = showId 
+                
+
+            });
                 
             context.SaveChanges();
         }
+
                 
 
                

@@ -138,11 +138,11 @@ namespace SFMvc.Controllers
             return View(model);
         }
 
-        [HttpPost("details")]
-        public IActionResult SaveComment(Comment comment)
+        [HttpPost("details/{id}")]
+        public IActionResult SaveComment(DetailsVM model, int id)
         {
-            dataService.AddToComments(comment);
-            return RedirectToAction(nameof(DetailsAsync));
+            dataService.AddToComments(model, id);
+            return RedirectToAction("details", new {id = id});
         }
 
 

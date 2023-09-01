@@ -19,7 +19,7 @@
         }     
     }
 </ul>
-<form asp-controller="Home" asp-action="SaveComment">
+<form asp-controller="Home" asp-action="SaveComment" asp-route-id="@Model.Show.Id">
 
     <h3>Write your Comment</h3>
     <input asp-for="Text" placeholder="write your comment here" />
