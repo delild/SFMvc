@@ -9,7 +9,16 @@
         public string ImageUrl { get; set; }
         public string LogoUrl { get; set; }
         public string? StreamingUrl { get; set; }
+        public int? LengthInMinutes { get; set; }
+        public int? NumberOfEpisodes { get; set; }
+        public int? NumberOfSeasons { get; set; }
+        public int Year { get; set; }
         public List<Shows2Users> UsersThatLikeMe { get; set; }
+
+
+
+
+
 
 
     }
