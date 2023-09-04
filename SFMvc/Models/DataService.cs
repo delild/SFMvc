@@ -168,20 +168,22 @@ namespace SFMvc.Models
                 item.Comments = comment
                 .Select(x => new CommentVM
                 {
-                    
+                    UserName = FindUserById(x.UserId).UserName,
                     Text = x.Text,
                     Time = x.Time,
-                    
-                    
                     
                 })
                 .ToArray();
             }
 
-
-
             return item;
         }
+
+        private ApplicationUser FindUserById(string userId)
+        {
+            return context.Users.Where(o => o.Id == userId).SingleOrDefault();
+        }
+
         public void AddToComments(DetailsVM model, int showId)
         {
            
@@ -189,9 +191,9 @@ namespace SFMvc.Models
             {
                 Text = model.Text,
                 Time = DateTime.Now,
+                User = FindUserById(userId),
+                ShowId = showId,
                 UserId = userId,
-                ShowId = showId 
-                
 
             });
                 

@@ -6,8 +6,6 @@ namespace SFMvc.Views.Home
     {
         public ShowVM Show { get; set; }
         public CommentVM[]? Comments { get; set; }
-        //public List<string>? CommentsText { get; set; }
-        //public List<string>? CommentsAuthor { get; set; }
         public string Text { get; set; }
     }
 
@@ -16,12 +14,8 @@ namespace SFMvc.Views.Home
         
         public string? Text { get; set; }
         public DateTime? Time { get; set; }
+        public string? UserName { get; set; }
 
-        public string?  UserName { get; set; }
-        
-
-        
-        
     }
 
     public class ShowVM
