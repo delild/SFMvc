@@ -1,6 +1,4 @@
-﻿@model PersonalVM
-
-
+﻿@model PersonalVM[]
 
 @{
     ViewBag.Title = "My Page";
@@ -10,7 +8,7 @@
 <div class="overall-container">
     <h1 style="color:#E2E3E4; margin-bottom:50px;">My Watchlist</h1>
     <div class="my-container">
-    @foreach (var item in Model.MyWatchList)
+    @foreach (var item in Model)
     {
         <div class="my-col">
             <div class="card">
