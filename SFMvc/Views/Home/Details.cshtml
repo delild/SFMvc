@@ -1,35 +1,43 @@
 ﻿@model DetailsVM
 
+<div style="display:flex; justify-content: center;">
+    <div>
+        <img style="width: 500px;" src="~/Images/@Model.Show.ImageUrl" />
+        <h1 style="color:white">@Model.Show.Title</h1>
+        <p style="color:white">@Model.Show.Description</p>
+        <p style="color:white">@Model.Show.Format</p>
+        <img src="~/Images/@Model.Show.LogoUrl" />
+    </div>
+    <div style="display: flex; flex-direction: column; justify-content: space-between;">
+        <ul>
+            @if (Model.Comments != null)
+            {
+                @foreach (var item in Model.Comments)
+                {
+                    <li>
+                        <div style="color:white">
+                            @item.UserName,
+                            @item.Time
+                            <div>
+                                @item.Text
+                            </div>
+                        </div>
+                    </li>
+                }
+            }
+        </ul>
+        <div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <form asp-controller="Home" asp-action="SaveComment" asp-route-id="@Model.Show.Id">
 
-<h1 style="color:white">@Model.Show.Title</h1>
-<p style="color:white">@Model.Show.Description</p>
-<p style="color:white">@Model.Show.Format</p>
-<img style="width: 500px;" src="~/Images/@Model.Show.ImageUrl" />
-<img src="~/Images/@Model.Show.LogoUrl" />
-<ul>
-	@if (Model.Comments != null)
-	{
-		@foreach (var item in Model.Comments)
-		{
-			<li>
-				<div style="color:white">
-					@item.Text
-					@item.Time
-					@item.UserName
-				</div>
-			</li>
-		}
-	}
-</ul>
+                    <h3>Write your Comment</h3>
+                    <input type="textarea" cols="5" rows="5" asp-for="Text" placeholder="write your comment here" class="form-control comment-box" />
+                    <span asp-validation-for="Text"></span>
+                    <input type="submit" value="Post" />
 
-@if (User.Identity.IsAuthenticated)
-{
-	<form asp-controller="Home" asp-action="SaveComment" asp-route-id="@Model.Show.Id">
-
-		<h3>Write your Comment</h3>
-		<input asp-for="Text" placeholder="write your comment here" />
-		<span asp-validation-for="Text"></span>
-		<input type="submit" value="Post" />
-
-	</form>
-}
+                </form>
+            }
+        </div>
+    </div>
+</div>
