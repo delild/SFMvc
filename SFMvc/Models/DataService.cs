@@ -172,6 +172,10 @@ namespace SFMvc.Models
                         ImageUrl = x.ImageUrl,
                         LogoUrl = x.LogoUrl,
                         Title = x.Title,
+                        LengthInMinutes= x.LengthInMinutes,
+                        NumberOfEpisodes= x.NumberOfEpisodes,
+                        NumberOfSeasons= x.NumberOfSeasons,
+                        StreamingUrl= x.StreamingUrl,
                     }
                 }
             ).FirstAsync();
@@ -206,7 +210,7 @@ namespace SFMvc.Models
             context.Comments.Add(new Comment
             {
                 Text = model.Text,
-                Time = DateTime.Now,
+                Time = $"{DateTime.Now.ToShortDateString()} {DateTime.Now.ToShortTimeString()}",
                 ShowId = showId,
                 UserId = userId,
 

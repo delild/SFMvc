@@ -12,8 +12,8 @@ using SFMvc.Models;
 namespace SFMvc.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230901110856_New initial migration")]
-    partial class Newinitialmigration
+    [Migration("20230904143934_NEW initial migration")]
+    partial class NEWinitialmigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -238,8 +238,9 @@ namespace SFMvc.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Time")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Time")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()

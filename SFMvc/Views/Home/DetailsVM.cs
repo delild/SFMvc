@@ -13,7 +13,7 @@ namespace SFMvc.Views.Home
     {
         
         public string? Text { get; set; }
-        public DateTime? Time { get; set; }
+        public string Time { get; set; }
         public string? UserName { get; set; }
 
     }
@@ -26,5 +26,9 @@ namespace SFMvc.Views.Home
         public string Format { get; set; }
         public string LogoUrl { get; set; }
         public string ImageUrl { get; set; }
+        public string? StreamingUrl { get; set; }
+        public int? LengthInMinutes { get; set; }
+        public int? NumberOfEpisodes { get; set; }
+        public int? NumberOfSeasons { get; set; }
     }
 }

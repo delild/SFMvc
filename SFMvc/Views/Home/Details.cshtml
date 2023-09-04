@@ -7,10 +7,21 @@
 <div style="display:flex; justify-content: center; margin-top:100px;">
     <div style="margin-right:40px; width:550px;">
         <img style="width: 500px;" src="~/Images/@Model.Show.ImageUrl" />
-        <h1 style="color:white">@Model.Show.Title</h1>
-        <p style="color:white">@Model.Show.Description</p>
-        <p style="color:white">@Model.Show.Format</p>
-        <img style="width:80px;" class="rounded" src="~/Images/@Model.Show.LogoUrl" />
+        <h1 style="color:#E2E3E4">@Model.Show.Title</h1>
+        @if (Model.Show.Format == "Serie")
+        {
+            <p style="color:#E2E3E4"><i> @Model.Show.NumberOfSeasons @(Model.Show.NumberOfSeasons > 1 ? "seasons" : "season")</i></p>
+        }
+        @if (Model.Show.Format == "Miniserie")
+        {
+            <p style="color:#E2E3E4"><i> @Model.Show.NumberOfEpisodes episodes</i></p>
+        }
+        @if (Model.Show.Format == "Film")
+        {
+            <p style="color:#E2E3E4"><i> @(Model.Show.LengthInMinutes / 60) h @(Model.Show.LengthInMinutes % 60) min</i></p>
+        }
+        <p style="color:#E2E3E4">@Model.Show.Description</p>
+        <a href="@Model.Show.StreamingUrl"><img style="width:80px;" class="rounded" src="~/Images/@Model.Show.LogoUrl" /></a>
     </div>
     <div style="display: flex; flex-direction: column; justify-content: space-between; margin-left:40px; width:379px;">
         <ul style="padding:0;">

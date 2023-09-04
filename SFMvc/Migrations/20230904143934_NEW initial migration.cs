@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SFMvc.Migrations
 {
     /// <inheritdoc />
-    public partial class Newinitialmigration : Migration
+    public partial class NEWinitialmigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -187,7 +187,7 @@ namespace SFMvc.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Time = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Time = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ShowId = table.Column<int>(type: "int", nullable: false)
                 },
