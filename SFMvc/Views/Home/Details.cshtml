@@ -4,25 +4,25 @@
 
 @model DetailsVM
 
-<div style="display:flex; justify-content: center;">
-    <div>
+<div style="display:flex; justify-content: center; margin-top:100px;">
+    <div style="margin-right:40px; width:550px;">
         <img style="width: 500px;" src="~/Images/@Model.Show.ImageUrl" />
         <h1 style="color:white">@Model.Show.Title</h1>
         <p style="color:white">@Model.Show.Description</p>
         <p style="color:white">@Model.Show.Format</p>
-        <img src="~/Images/@Model.Show.LogoUrl" />
+        <img style="width:80px;" class="rounded" src="~/Images/@Model.Show.LogoUrl" />
     </div>
-    <div style="display: flex; flex-direction: column; justify-content: space-between;">
-        <ul>
+    <div style="display: flex; flex-direction: column; justify-content: space-between; margin-left:40px; width:379px;">
+        <ul style="padding:0;">
             @if (Model.Comments != null)
             {
                 @foreach (var item in Model.Comments)
                 {
-                    <li>
+                    <li style="list-style:none;">
                         <div style="color:white">
                             @item.UserName,
                             @item.Time
-                            <div>
+                            <div style="width: 379px;word-wrap: break-word; padding:10px; margin-bottom:20px; background-color:rgba(1,46,64,0.5);" class="border border-warning rounded">
                                 @item.Text
                             </div>
                         </div>
@@ -34,14 +34,12 @@
             @if (User.Identity.IsAuthenticated)
             {
                 <form asp-controller="Home" asp-action="SaveComment" asp-route-id="@Model.Show.Id">
-
-                    <h3>Write your Comment</h3>
-                    <input type="textarea" cols="5" rows="5" asp-for="Text" placeholder="write your comment here" class="form-control comment-box" />
+                    <textarea cols="5" rows="5" asp-for="Text" placeholder="write your comment here" class="form-control comment-box" style="text-align: left; vertical-align: top;"></textarea>
                     <span asp-validation-for="Text"></span>
-                    <input type="submit" value="Post" />
-
+                    <input class="login-button btn-secondary" style="width:70px; height:40px;"type="submit" value="Post" />
                 </form>
             }
+
         </div>
     </div>
 </div>
