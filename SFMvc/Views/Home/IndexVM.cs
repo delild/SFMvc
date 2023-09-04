@@ -14,7 +14,6 @@
         public int? LengthInMinutes { get; set; }
         public int? NumberOfEpisodes { get; set; }
         public int? NumberOfSeasons { get; set; }
-        public int Year { get; set; }
 
     }
 

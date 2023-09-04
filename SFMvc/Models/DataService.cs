@@ -123,18 +123,34 @@ namespace SFMvc.Models
             context.SaveChanges();
         }
 
-        internal PersonalVM GetMyWatchList()
+        internal PersonalVM[] GetMyWatchList()
         {
             var movies = context.Shows2Users.Where(o => o.ApplicationUserId == userId).ToList();
-            List<Show> shows = new List<Show>();
-            foreach (var item in movies)
-            {
-                Show show = context.Shows.SingleOrDefault(o => o.Id == item.ShowId);
-                shows.Add(show);
-            }
 
-            var model = new PersonalVM { MyWatchList = shows };
-            return model;
+            PersonalVM[] shows = new PersonalVM[movies.Count];
+
+            for (int i = 0; i < movies.Count; i++)
+            {
+                var model = context.Shows
+                .Where(o => o.Id == movies[i].ShowId)
+                .Select(x => new PersonalVM
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    Description = x.Description,
+                    Format = x.Format,
+                    ImageUrl = x.ImageUrl,
+                    LogoUrl = x.LogoUrl,
+                    StreamingUrl = x.StreamingUrl,
+                    NumberOfSeasons = x.NumberOfSeasons,
+                    NumberOfEpisodes = x.NumberOfEpisodes,
+                    LengthInMinutes = x.LengthInMinutes,
+                })
+                .First();
+
+                shows[i] = model;
+			}
+                return shows;
         }
 
         internal string GetUserNameByEmail(string email)
@@ -191,7 +207,6 @@ namespace SFMvc.Models
             {
                 Text = model.Text,
                 Time = DateTime.Now,
-                User = FindUserById(userId),
                 ShowId = showId,
                 UserId = userId,
 
