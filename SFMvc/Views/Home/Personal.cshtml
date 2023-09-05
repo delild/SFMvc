@@ -55,6 +55,7 @@
                                 <div style="width: 379px;word-wrap: break-word; padding:10px; margin-bottom:20px; background-color:rgba(1,46,64,0.5);" class="border border-warning rounded">
                                     @item.Text
                                 </div>
+                                <a asp-controller="Home" asp-action="RemoveCommentPersonal" asp-route-id="@item.Id" class="btn remove-btn">Remove comment</a>
                             </div>
                         </li>
                     }
