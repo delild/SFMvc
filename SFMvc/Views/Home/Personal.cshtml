@@ -5,9 +5,12 @@
 }
 
 
-<div class="overall-container">
-    <h1 style="color:#E2E3E4; margin-bottom:50px;">My Watchlist</h1>
-    <div class="my-container">
+<div class="overall-container watchlist">
+    <div style="display:flex; display: flex;flex-direction: column; align-items: center;">
+        <div style="display:flex;">
+            <h2 style="color:#E2E3E4; margin-bottom:50px;">My Watchlist</h2>
+        </div>
+    <div class="mypage-container">
     @foreach (var item in Model.MyShows)
     {
         <div class="my-col">
@@ -29,17 +32,25 @@
         </div>
     }
     </div>
-    
-        <div style="display: flex; flex-direction: column; justify-content: space-between; margin-left:40px; width:379px;">
+    </div>
+    <div style="display: flex;flex-direction: column;align-items: center;">
+       <div style="margin-bottom:44px;"> <h2 style="color:#E2E3E4;">My Comments</h2></div>
+    <div style="display: flex;flex-direction: column;justify-content: space-between;margin-left: 0px;width: 379px;">
             <ul style="padding:0;">
                 @if (Model.MyComments != null)
                 {
                     @foreach (var item in Model.MyComments)
                     {
                         <li style="list-style:none;">
-                            <div style="color:white">
-                                @item.Title,
-                                @item.Time
+                            <div style="color:#E2E3E4;">
+                                <div style="display:flex; justify-content:space-between;">
+                                    <div>
+                                        @item.Title
+                                    </div>
+                                    <div>
+                                        @item.Time
+                                    </div>
+                                </div>
                                 <div style="width: 379px;word-wrap: break-word; padding:10px; margin-bottom:20px; background-color:rgba(1,46,64,0.5);" class="border border-warning rounded">
                                     @item.Text
                                 </div>
@@ -48,7 +59,7 @@
                     }
                 }
             </ul>
-            
+        </div>
     </div>
 </div>
 
