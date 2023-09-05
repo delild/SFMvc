@@ -23,28 +23,38 @@
         <p style="color:#E2E3E4">@Model.Show.Description</p>
         <a href="@Model.Show.StreamingUrl"><img style="width:80px;" class="rounded" src="~/Images/@Model.Show.LogoUrl" /></a>
     </div>
-    <div style="display: flex; flex-direction: column; justify-content: space-between; margin-left:40px; width:379px;">
-        <ul style="padding:0;">
+    <div style="display: flex; flex-direction: column; margin-left:40px; width:400px;" >
+        <div class="scrollbar" style=" overflow-y: auto; height: 500px;margin-bottom: 40px;">
+         <div data-bs-spy="scroll" data-bs-smooth-scroll="true" tabindex="0" style="display:flex; flex-direction:column; justify-content:space-between;">
+        <ul style="padding:0px; padding-right:20px;" >
             @if (Model.Comments != null)
             {
                 @foreach (var item in Model.Comments)
                 {
                     <li style="list-style:none;">
-                        <div style="color:#E2E3E4">
-                            @item.UserName,
-                            @item.Time
+                           <div style="color:#E2E3E4;" >
+                               <div style="display:flex; justify-content:space-between;">
+                               <div style="color: rgba(255, 195, 0, 0.9); font-weight: bold;">
+                                @item.UserName
+                               </div>
+                               <div style="font-size:small">
+                                 @item.Time
+                               </div>
+                                </div>
                             <div style="width: 379px;word-wrap: break-word; padding:10px; margin-bottom:20px; background-color:rgba(1,46,64,0.5);" class="border border-warning rounded">
                                 @item.Text
                             </div>
                             @if (item.UserName == User.Identity.Name)
                             {
-                                <a asp-controller="Home" asp-action="RemoveComment" asp-route-id="@item.Id" class="btn remove-btn">Remove comment</a>
+                                <a asp-controller="Home" asp-action="RemoveComment" asp-route-id="@item.Id" class="btn btn-primary" style="">Remove comment</a>
                             }
                         </div>
                     </li>
                 }
             }
         </ul>
+        </div>
+        </div>
         <div>
             @if (User.Identity.IsAuthenticated)
             {
