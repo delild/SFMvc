@@ -23,9 +23,11 @@
         <p style="color:#E2E3E4">@Model.Show.Description</p>
         <a href="@Model.Show.StreamingUrl"><img style="width:80px;" class="rounded" src="~/Images/@Model.Show.LogoUrl" /></a>
     </div>
-    <div style="display: flex; flex-direction: column; justify-content: space-between; margin-left:40px; width:379px;">
+    <div style="display: flex; flex-direction: column; justify-content: space-between; margin-left:40px; width:400px;" >
         <h2 style="color:#E2E3E4">Users Comments</h2>
-        <ul style="padding:0;">
+        <div class="scrollbar" style=" overflow-y: auto; height: 500px;margin-bottom: 40px;">
+         <div data-bs-spy="scroll" data-bs-smooth-scroll="true" tabindex="0" style="display:flex; flex-direction:column; justify-content:space-between;">
+        <ul style="padding:0px; padding-right:20px;" >
             @if (Model.Comments != null)
             {
                 @foreach (var item in Model.Comments)
@@ -36,22 +38,24 @@
                                 <div>
                                     @item.UserName
                                 </div>
-                                <div>
+                                <div style="font-size:small">
                                     @item.Time
                                 </div>
                             </div>
-                            <div style="width: 379px;word-wrap: break-word; padding:10px; margin-bottom:5px; background-color:rgba(1,46,64,0.5);" class="border border-warning rounded">
+                            <div style="width: 379px;word-wrap: break-word; padding:10px; margin-bottom:2px; background-color:rgba(1,46,64,0.5);" class="border border-warning rounded">
                                 @item.Text
                          </div>
                             @if (item.UserName == User.Identity.Name)
                             {
-                                <a asp-controller="Home" asp-action="RemoveCommentDetails" asp-route-id="@item.Id" style="color:#E84217; text-align: right; font-size:small">Remove comment</a>
+                                <a asp-controller="Home" asp-action="RemoveCommentDetails" asp-route-id="@item.Id" style="color:#E84217; text-align: right; font-size:small; text-decoration:none;">🗑️</a>
                             }
                         </div>
                     </li>
                 }
             }
         </ul>
+        </div>
+        </div>
         <div>
             @if (User.Identity.IsAuthenticated)
             {

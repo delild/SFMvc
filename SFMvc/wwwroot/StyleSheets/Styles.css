@@ -208,3 +208,19 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
 }
+
+.scrollbar::-webkit-scrollbar {
+    width: 10px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1; /*vita ytan*/
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background: #888; /*klickar in*/
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555; /*default*/
+}
