@@ -4,6 +4,7 @@
     ViewBag.Title = "My Page";
 }
 
+<h1 style="visibility:hidden;">My Page</h1>
 
 <div class="overall-container watchlist">
     <div style="display:flex; display: flex;flex-direction: column; align-items: center;">
@@ -25,7 +26,7 @@
                     <p class="card-text" style="flex-grow: 1;"></p>
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                             <a href="@item.StreamingUrl"><img src="/Images/@item.LogoUrl" class="logo-img" /></a>
-                         <a asp-controller="Home" asp-action="RemoveFromWatchlist" asp-route-id="@item.Id" class="btn remove-btn">Remove from Watchlist</a>
+                                <a asp-controller="Home" asp-action="RemoveFromWatchlist" asp-route-id="@item.Id" class="btn btn-primary"><div>Remove from Watchlist</div></a>
                     </div>
                 </div>
             </div>
@@ -44,16 +45,17 @@
                         <li style="list-style:none;">
                             <div style="color:#E2E3E4;">
                                 <div style="display:flex; justify-content:space-between;">
-                                    <div>
+                                    <div style="color: rgba(255, 195, 0, 0.9); font-weight: bold;">
                                         @item.Title
                                     </div>
-                                    <div>
+                                    <div style="font-size:small;">
                                         @item.Time
                                     </div>
                                 </div>
                                 <div style="width: 379px;word-wrap: break-word; padding:10px; margin-bottom:20px; background-color:rgba(1,46,64,0.5);" class="border border-warning rounded">
                                     @item.Text
                                 </div>
+                                <a asp-controller="Home" asp-action="RemoveCommentPersonal" asp-route-id="@item.Id" class="btn remove-btn">Remove comment</a>
                             </div>
                         </li>
                     }

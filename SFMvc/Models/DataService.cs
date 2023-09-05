@@ -166,7 +166,8 @@ namespace SFMvc.Models
             .Where(c => c.UserId == userId)
             .Select(c => new MyCommentVM
             {
-                Text = c.Text,
+                Id = c.Id,
+                Text = c.Text,  
                 Time = c.Time,
                 Title = context.Shows.SingleOrDefault(s => s.Id == c.ShowId).Title,
 
