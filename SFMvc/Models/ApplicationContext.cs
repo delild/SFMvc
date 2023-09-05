@@ -35,10 +35,10 @@ namespace SFMvc.Models
                       NumberOfEpisodes = 124,
                       NumberOfSeasons = 7,
                       Year = 2009,
-                      Cast =  "Amy Poehler, Jim O'Heir, Nick Offerman, Chris Pratt, Aubrey Plaza, Aziz Ansari, Retta, Rashida Jones, Adam Scott, Rob Lowe, Jay Jackson, Paul Schneider, Ben Schwartz, Mo Collins, Yvans Jourdain, Jon Glaser, Billy Eichner, James Greene",
+                      Cast = "Amy Poehler, Jim O'Heir, Nick Offerman, Chris Pratt, Aubrey Plaza, Aziz Ansari, Retta, Rashida Jones, Adam Scott, Rob Lowe, Jay Jackson, Paul Schneider, Ben Schwartz, Mo Collins, Yvans Jourdain, Jon Glaser, Billy Eichner, James Greene",
                       Creators = "Greg Daniels, Michael Schur",
                       ImdbLink = "https://www.imdb.com/title/tt1266020/",
-                      Genres =  "Comedy" 
+                      Genres = "Comedy"
                   },
 
                   new Show
@@ -54,7 +54,7 @@ namespace SFMvc.Models
                       NumberOfSeasons = 5,
                       Year = 2016,
                       Cast = "Claire Foy, Olivia Colman, Imelda Staunton, Matt Smith, Tobias Menzies, Dominic West, Lesley Manville, Charles Edwards, Elizabeth Debicki, Jonathan Pryce, Vanessa Kirby, Marion Bailey, Victoria Hamilton, Helena Bonham Carter, Pip Torrens, Sam Phillips, Erin Doherty, Will Keen",
-                      Creators =  "Peter Morgan" ,
+                      Creators = "Peter Morgan",
                       ImdbLink = "https://www.imdb.com/title/tt4786824/",
                       Genres = "Biography, Drama, History"
                   },
@@ -74,7 +74,7 @@ namespace SFMvc.Models
                       Cast = "Pedro Pascal, Bella Ramsey, Anna Torv, Lamar Johnson, Melanie Lynskey, Nico Parker, Merle Dandridge, Keivonn Woodard, Jeffrey Pierce, John Getz, Gabriel Luna, Samuel Hoeksema, Olivier Ross-Parent, Rutina Wesley, Storm Reid, Scott Shepherd, Ashley Johnson, Nick Offerman",
                       Creators = "Neil Druckmann, Craig Mazin",
                       ImdbLink = "https://www.imdb.com/title/tt3581920/",
-                      Genres = "Action, Adventure, Drama" 
+                      Genres = "Action, Adventure, Drama"
                   },
 
                   new Show
@@ -92,7 +92,7 @@ namespace SFMvc.Models
                       Cast = "John Wilson",
                       Director = "John Wilson",
                       ImdbLink = "https://www.imdb.com/title/tt10801534/",
-                      Genres = "Documentary, Comedy" 
+                      Genres = "Documentary, Comedy"
                   },
 
                   new Show
@@ -109,7 +109,7 @@ namespace SFMvc.Models
                       Cast = "John David Washington, Robert Pattinson, Elizabeth Debicki, Juhan Ulfsak, Jefferson Hall, Ivo Uukkivi, Andrew Howard, Rich Ceraulo Ko, Jonathan Camp, Wes Chatham, Sander Rebane, Martin Donovan, Clémence Poésy, Josh Stewart, Dimple Kapadia, Denzil Smith, Jeremy Theobald, Michael Caine",
                       Director = "Christopher Nolan",
                       ImdbLink = "https://www.imdb.com/title/tt6723592/",
-                      Genres = "Action, Sci-Fi, Thriller" 
+                      Genres = "Action, Sci-Fi, Thriller"
                   },
 
                   new Show
@@ -158,7 +158,7 @@ namespace SFMvc.Models
                       StreamingUrl = "https://www.disneyplus.com/en-se",
                       LengthInMinutes = 150,
                       Year = 2023,
-                      Cast =  "Chris Pratt, Chukwudi Iwuji, Bradley Cooper, Pom Klementieff, Dave Bautista, Karen Gillan, Vin Diesel, Austin Freeman, Stephen Blackehart, Terence Rosemore, Maria Bakalova, Sean Gunn, Sarah Alami, Jasmine Munoz, Giovannie Cruz, Will Poulter, Nico Santos, Miriam Shor",
+                      Cast = "Chris Pratt, Chukwudi Iwuji, Bradley Cooper, Pom Klementieff, Dave Bautista, Karen Gillan, Vin Diesel, Austin Freeman, Stephen Blackehart, Terence Rosemore, Maria Bakalova, Sean Gunn, Sarah Alami, Jasmine Munoz, Giovannie Cruz, Will Poulter, Nico Santos, Miriam Shor",
                       Director = "James Gunn",
                       ImdbLink = "https://www.imdb.com/title/tt6791350/",
                       Genres = "Action, Adventure, Comedy"
@@ -179,23 +179,159 @@ namespace SFMvc.Models
                       Director = "James Gunn",
                       ImdbLink = "https://www.imdb.com/title/tt2015381/",
                       Genres = "Action, Adventure, Comedy"
+                  },
+                  new Show
+                  {
+                      Id = 10,
+                      Title = "One Piece",
+                      Description = "There once lived a pirate named Gol D. Roger. He obtained wealth, fame, and power to earn the title of Pirate King. When he was captured and about to be executed, he revealed that his treasure called One Piece was hidden somewhere at the Grand Line. This made all people set out to search and uncover the One Piece treasure, but no one ever found the location of Gol D. Roger's treasure, and the Grand Line was too dangerous a place to overcome. Twenty-two years after Gol D. Roger's death, a boy named Monkey D. Luffy decided to become a pirate and search for Gol D. Roger's treasure to become the next Pirate King.",
+                      Format = "Serie",
+                      ImageUrl = "one-piece.jpg", 
+                      LogoUrl = "crunchyroll-logo.png", 
+                      StreamingUrl = "https://www.crunchyroll.com/",
+                      NumberOfEpisodes = 1081,
+                      NumberOfSeasons = 20,
+                      Year = 1999,
+                      Cast = "Mayumi Tanaka, Laurent Vernin, Tony Beck, Akemi Okamura, Kazuya Nakai, Kappei Yamaguchi, Hiroaki Hirata, Ikue Ôtani, Colleen Clinkenbeard, Yuriko Yamaguchi, Mahito Ôba, Kazuki Yao, Chikao Ôtsuka, Luci Christian, Christopher Sabat, Sonny Strait, Eric Vale, Chô",
+                      Creators = "Eiichirô Oda",
+                      ImdbLink = "https://www.imdb.com/title/tt0388629/",
+                      Genres = "Animation, Action, Adventure" 
+                  },
+                  new Show
+                  {
+                      Id = 11,
+                      Title = "Naruto: Shippûden",
+                      Description = "Naruto Uzumaki wants to be the best ninja in the land. He's done well so far, but with the looming danger posed by the mysterious Akatsuki organization, Naruto knows he must train harder than ever and leaves his village for intense exercises that will push him to his limits.",
+                      Format = "Serie",
+                      ImageUrl = "naruto.jpg",
+                      LogoUrl = "crunchyroll-logo.png",
+                      StreamingUrl = "https://www.crunchyroll.com/",
+                      NumberOfEpisodes = 500,
+                      NumberOfSeasons = 21,
+                      Year = 2007,
+                      Cast = "Alexandre Crepet, Junko Takeuchi, Maile Flanagan, Kate Higgins, Chie Nakamura, Dave Wittenberg, Kazuhiko Inoue, Kyle Hebert, Yuri Lowenthal, Noriaki Sugiyama, Masako Katsuki, Debi Mae West, Colleen O'Shaughnessey, Steve Blum, Stephanie Sheh, Shôtarô Morikubo, Tom Gibis, Rikiya Koyama",
+                      Creators = "Masashi Kishimoto",
+                      ImdbLink = "https://www.imdb.com/title/tt0988824/",
+                      Genres = "Animation, Action, Adventure"
+                  },
+                  new Show
+                  {
+                      Id = 12,
+                      Title = "Barbie",
+                      Description = "Barbie suffers a crisis that leads her to question her world and her existence.",
+                      Format = "Film",
+                      ImageUrl = "barbie.jpg",
+                      LogoUrl = "hbo.jfif",
+                      StreamingUrl = "https://www.hbomax.com/se/sv", //oklart om den streamar ännu här, lägga till att den inte streamas ännu?
+                      LengthInMinutes = 114,
+                      Year = 2023,
+                      Cast = "Margot Robbie, Ryan Gosling, Issa Rae, Kate McKinnon, Alexandra Shipp, Emma Mackey, Hari Nef, Sharon Rooney, Ana Cruz Kayne, Ritu Arya, Dua Lipa, Nicola Coughlan, Emerald Fennell, Simu Liu, Kingsley Ben-Adir, Ncuti Gatwa, Scott Evans, John Cena",
+                      Director = "Greta Gerwig",
+                      ImdbLink = "https://www.imdb.com/title/tt1517268/",
+                      Genres = "Adventure, Comedy, Fantasy"
+                  },
+                  new Show
+                  {
+                      Id = 13,
+                      Title = "The Dark Knight",
+                      Description = "Set within a year after the events of Batman Begins (2005), Batman, Lieutenant James Gordon, and new District Attorney Harvey Dent successfully begin to round up the criminals that plague Gotham City, until a mysterious and sadistic criminal mastermind known only as \"The Joker\" appears in Gotham, creating a new wave of chaos. Batman's struggle against The Joker becomes deeply personal, forcing him to \"confront everything he believes\" and improve his technology to stop him. A love triangle develops between Bruce Wayne, Dent, and Rachel Dawes.",
+                      Format = "Film",
+                      ImageUrl = "the-dark-knight.jpg",
+                      LogoUrl = "hbo.jfif",
+                      StreamingUrl = "https://www.hbomax.com/se/sv",
+                      LengthInMinutes = 152,
+                      Year = 2008,
+                      Cast = "Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine, Maggie Gyllenhaal, Gary Oldman, Morgan Freeman, Monique Gabriela Curnen, Ron Dean, Cillian Murphy, Chin Han, Nestor Carbonell, Eric Roberts, Ritchie Coster, Anthony Michael Hall, Keith Szarabajka, Colin McFarlane, Joshua Harto",
+                      Director = "Christopher Nolan",
+                      ImdbLink = "https://www.imdb.com/title/tt0468569/",
+                      Genres = "Action, Crime, Drama"
+                  },
+                  new Show
+                  {
+                      Id = 14,
+                      Title = "Interstellar",
+                      Description = "Earth's future has been riddled by disasters, famines, and droughts. There is only one way to ensure mankind's survival: Interstellar travel. A newly discovered wormhole in the far reaches of our solar system allows a team of astronauts to go where no man has gone before, a planet that may have the right environment to sustain human life.",
+                      Format = "Film",
+                      ImageUrl = "interstellar.jpg",
+                      LogoUrl = "prime-video-logo.png",
+                      StreamingUrl = "https://www.primevideo.com/offers/nonprimehomepage/ref=atv_nb_lcl_sv_SE?ie=UTF8",
+                      LengthInMinutes = 169,
+                      Year = 2014,
+                      Cast = "Matthew McConaughey, Anne Hathaway, Jessica Chastain, Mackenzie Foy, Ellen Burstyn, John Lithgow, Timothée Chalamet, David Oyelowo, Collette Wolfe, Francis X. McCarthy, Bill Irwin, Andrew Borba, Wes Bentley, William Devane, Michael Caine, David Gyasi, Josh Stewart, Casey Affleck",
+                      Director = "Christopher Nolan",
+                      ImdbLink = "https://www.imdb.com/title/tt0816692/",
+                      Genres = "Adventure, Drama, Sci-Fi"
+                  },
+                  new Show
+                  {
+                      Id = 15,
+                      Title = "Only Murders in the Building",
+                      Description = "\"Only Murders in the Building\" follows three strangers (Steve Martin, Martin Short, and Selena Gomez) who share an obsession with true crime and suddenly find themselves wrapped up in one. When a grisly death occurs inside their exclusive Upper West Side apartment building, the trio suspects murder and employs their precise knowledge of true crime to investigate the truth. As they record a podcast of their own to document the case, the three unravel the complex secrets of the building which stretch back years. Perhaps even more explosive are the lies they tell one another. Soon, the endangered trio comes to realize a killer might be living amongst them as they race to decipher the mounting clues before it's too late.",
+                      Format = "Serie",
+                      ImageUrl = "only-murders.jpg",
+                      LogoUrl = "disney.png",
+                      StreamingUrl = "https://www.disneyplus.com/en-se",
+                      NumberOfEpisodes = 30,
+                      NumberOfSeasons = 3,
+                      Year = 2021,
+                      Cast = "Steve Martin, Martin Short, Selena Gomez, Michael Cyril Creighton, Amy Ryan, Jackie Hoffman, Teddy Coluca, Jayne Houdyshell, Aaron Dominguez, Cara Delevingne, Ryan Broussard, Vanessa Aspillaga, Tina Fey, Adina Verson, Da'Vine Joy Randolph, Jason Veasey, Nathan Lane, Russell G. Jones",
+                      Creators = "John Hoffman, Steve Martin",
+                      ImdbLink = "https://www.imdb.com/title/tt11691774/",
+                      Genres = "Comedy, Crime, Drama"
+                  },
+                  new Show
+                  {
+                      Id = 16,
+                      Title = "Attack on Titan",
+                      Description = "Humans are nearly exterminated by giant creatures called Titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a land protected by extremely high walls, even taller than the biggest of titans. Flash forward to the present, and mankind has not seen a titan in over 100 years. One day, 10 year old Eren and his childhood friend Mikasa witness something horrific as the city walls are destroyed by a colossal titan that appears out of thin air. As the smaller titans flood the city, the two kids watch in horror as Eren's mother is eaten alive. Eren vows that he will murder every single titan and take revenge for all of mankind.",
+                      Format = "Serie",
+                      ImageUrl = "attack-on-titan.jpg",
+                      LogoUrl = "crunchyroll-logo.png",
+                      StreamingUrl = "https://www.crunchyroll.com/",
+                      NumberOfEpisodes = 98,
+                      NumberOfSeasons = 4,
+                      Year = 2013,
+                      Cast = "Josh Grelle, Bryce Papenbrook, Yûki Kaji, Yui Ishikawa, Marina Inoue, Trina Nishimura, Kishô Taniyama, Hiro Shimono, Clifford Chapin, Mike McFarland, Romi Park, Matthew Mercer, Jessica Calvello, Hiroshi Kamiya, Yoshimasa Hosoya, Yû Kobayashi, Robert McCollum, Ashly Burch",
+                      Creators = "Hajime Isayama",
+                      ImdbLink = "https://www.imdb.com/title/tt2560140/",
+                      Genres = "Animation, Action, Adventure"
+                  },
+                  new Show
+                  {
+                      Id = 17,
+                      Title = "The Office",
+                      Description = "A mediocre paper company in the hands of Scranton, PA branch manager Michael Scott. This mockumentary follows the everyday lives of the manager and the employees he \"manages.\" The crew follows the employees around 24/7 and captures their quite humorous and bizarre encounters as they will do what it takes to keep the company thriving.",
+                      Format = "Serie",
+                      ImageUrl = "the-office.jpg",
+                      LogoUrl = "prime-video-logo.png",
+                      StreamingUrl = "https://www.primevideo.com/offers/nonprimehomepage/ref=atv_nb_lcl_sv_SE?ie=UTF8",
+                      NumberOfEpisodes = 188,
+                      NumberOfSeasons = 9,
+                      Year = 2005,
+                      Cast = "Steve Carell, Jenna Fischer, John Krasinski, Rainn Wilson, Leslie David Baker, Brian Baumgartner, Angela Kinsey, Kate Flannery, Phyllis Smith, Creed Bratton, Oscar Nuñez, B.J. Novak, Mindy Kaling, Ed Helms, Paul Lieberstein, Craig Robinson, Ellie Kemper, Zach Woods",
+                      Creators = "Greg Daniels, Ricky Gervais, Stephen Merchant",
+                      ImdbLink = "https://www.imdb.com/title/tt0386676/",
+                      Genres = "Comedy"
+                  },
+                  new Show
+                  {
+                      Id = 18,
+                      Title = "Scrubs",
+                      Description = "Set in the fictional Sacred Heart hospital in California, John \"J.D\" Dorian makes his way through the overwhelming world of medicine, with the help of his best friend, his fellow rookie doctors, and the arrogant, but brilliant attending physician he views as his mentor.",
+                      Format = "Serie",
+                      ImageUrl = "scrubs.jpg",
+                      LogoUrl = "disney.png",
+                      StreamingUrl = "https://www.disneyplus.com/en-se",
+                      NumberOfEpisodes = 169,
+                      NumberOfSeasons = 8,
+                      Year = 2001,
+                      Cast = "Zach Braff, Donald Faison, Sarah Chalke, John C. McGinley, Ken Jenkins, Neil Flynn, Judy Reyes, Robert Maschio, Sam Lloyd, Aloma Wright, Christa Miller, Johnny Kastl, Travis Schuldt, Eliza Coupe, Frank Encarnacao, Charles Rahi Chun, Mike Schwartz, Elizabeth Banks",
+                      Creators = "Bill Lawrence",
+                      ImdbLink = "https://www.imdb.com/title/tt0285403/",
+                      Genres = "Comedy, Drama"
                   }
-                  //new Show
-                  //{
-                  //    Id = ,
-                  //    Title = "",
-                  //    Description = "",
-                  //    Format = "",
-                  //    ImageUrl = "",
-                  //    LogoUrl = "",
-                  //    StreamingUrl = "",
-                  //    LengthInMinutes = ,
-                  //    Year = ,
-                  //    Cast = { "" },
-                  //    Creators = { "" },
-                  //    ImdbLink = "",
-                  //    Genres = { "" }
-                  //}
+
+
                 );
         }
     }
