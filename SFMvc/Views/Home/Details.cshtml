@@ -30,12 +30,16 @@
                 @foreach (var item in Model.Comments)
                 {
                     <li style="list-style:none;">
-                        <div style="color:white">
+                        <div style="color:#E2E3E4">
                             @item.UserName,
                             @item.Time
                             <div style="width: 379px;word-wrap: break-word; padding:10px; margin-bottom:20px; background-color:rgba(1,46,64,0.5);" class="border border-warning rounded">
                                 @item.Text
                             </div>
+                            @if (item.UserName == User.Identity.Name)
+                            {
+                                <a asp-controller="Home" asp-action="RemoveComment" asp-route-id="@item.Id" class="btn remove-btn">Remove comment</a>
+                            }
                         </div>
                     </li>
                 }

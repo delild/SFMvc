@@ -33,6 +33,7 @@
 .btn-primary {
     background-color: #024959;
     border-color: #024959;
+    box-shadow: -3px -3px 5px #101C2C;
 }
 .btn:hover {
     background-color: #101C2C; 
@@ -189,6 +190,21 @@
     align-items: center;
 }
 
-.comment-box {
+.watchlist {
+    margin: 170px 0;
+    padding: 0;
+    margin-top: 170px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    justify-content: space-evenly
+}
 
+.mypage-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
 }

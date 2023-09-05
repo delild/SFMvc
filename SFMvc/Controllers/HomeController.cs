@@ -55,6 +55,15 @@ namespace SFMvc.Controllers
         }
 
 
+        [HttpGet("remove/{id}")]
+        public IActionResult RemoveComment(int id)
+        {
+            int showId = dataService.RemoveComment(id);
+            return RedirectToAction("details", new { id = showId });
+        }
+
+
+
         [HttpGet("login")]
         public IActionResult Login()
         {
@@ -142,7 +151,7 @@ namespace SFMvc.Controllers
         public IActionResult SaveComment(DetailsVM model, int id)
         {
             dataService.AddToComments(model, id);
-            return RedirectToAction("details", new {id = id});
+            return RedirectToAction("details", new { id = id });
         }
 
 
