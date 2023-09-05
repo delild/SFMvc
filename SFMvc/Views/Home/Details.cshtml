@@ -30,31 +30,32 @@
         <ul style="padding:0px; padding-right:20px;" >
             @if (Model.Comments != null)
             {
-                @foreach (var item in Model.Comments)
-                {
-                    <li style="list-style:none;">
-                        <div style="color:#E2E3E4; display:flex; flex-direction: column;">
-                            <div style="display:flex; justify-content:space-between;  margin-top:20px;">
-                                <div>
-                                    @item.UserName
+                        @foreach (var item in Model.Comments)
+                        {
+                            <li style="list-style:none;">
+                                <div style="color:#E2E3E4; display:flex; flex-direction: column;">
+                                    <div style="display:flex; justify-content:space-between;  margin-top:20px;">
+                                        <div>
+                                            @item.UserName
+                                        </div>
+                                        <div style="font-size:small">
+                                            @item.Time
+                                        </div>
+                                    </div>
+                                    <div style="width: 379px;word-wrap: break-word; padding:10px; margin-bottom:2px; background-color:rgba(1,46,64,0.5);" class="border border-warning rounded">
+                                        @item.Text
+                                    </div>
+                                    @if (item.UserName == User.Identity.Name)
+                                    {
+                                        <a asp-controller="Home" asp-action="RemoveCommentDetails" asp-route-id="@item.Id" style="text-align: right; font-size:small; text-decoration:none;">
+                                            <img src="~/Images/4.png" style="height:22px" /></a>
+                                    }
                                 </div>
-                                <div style="font-size:small">
-                                    @item.Time
-                                </div>
-                            </div>
-                            <div style="width: 379px;word-wrap: break-word; padding:10px; margin-bottom:2px; background-color:rgba(1,46,64,0.5);" class="border border-warning rounded">
-                                @item.Text
-                         </div>
-                            @if (item.UserName == User.Identity.Name)
-                            {
-                                <a asp-controller="Home" asp-action="RemoveCommentDetails" asp-route-id="@item.Id" style="color:#E84217; text-align: right; font-size:small; text-decoration:none;">🗑️</a>
-                            }
-                        </div>
-                    </li>
-                }
-            }
-        </ul>
-        </div>
+                            </li>
+                        }
+                    }
+            </ul>
+            </div>
         </div>
         <div>
             @if (User.Identity.IsAuthenticated)

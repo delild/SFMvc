@@ -36,15 +36,17 @@
     </div>
     <div style="display: flex;flex-direction: column;align-items: center;">
        <div style="margin-bottom:44px;"> <h2 style="color:#E2E3E4;">My Comments</h2></div>
-    <div style="display: flex;flex-direction: column;justify-content: space-between;margin-left: 0px;width: 379px;">
-            <ul style="padding:0;">
+    <div style="display: flex;flex-direction: column;justify-content: space-between;margin-left: 0px;width: 400px;">
+            <div class="scrollbar" style=" overflow-y: auto; height: 500px;margin-bottom: 40px;">
+                <div data-bs-spy="scroll" data-bs-smooth-scroll="true" tabindex="0" style="display:flex; flex-direction:column; justify-content:space-between;">
+            <ul style="padding:0; padding-right:20px">
                 @if (Model.MyComments != null)
                 {
                     @foreach (var item in Model.MyComments)
                     {
                         <li style="list-style:none;">
-                            <div style="color:#E2E3E4;">
-                                <div style="display:flex; justify-content:space-between;">
+                            <div style="color:#E2E3E4; display:flex;  flex-direction: column;">
+                                <div style="display:flex; justify-content:space-between; margin-top:20px">
                                     <div style="color: rgba(255, 195, 0, 0.9); font-weight: bold;">
                                         @item.Title
                                     </div>
@@ -52,15 +54,19 @@
                                         @item.Time
                                     </div>
                                 </div>
-                                <div style="width: 379px;word-wrap: break-word; padding:10px; margin-bottom:20px; background-color:rgba(1,46,64,0.5);" class="border border-warning rounded">
+                                <div style="width: 379px;word-wrap: break-word; padding:10px; margin-bottom:2px; background-color:rgba(1,46,64,0.5);" class="border border-warning rounded">
                                     @item.Text
                                 </div>
-                                <a asp-controller="Home" asp-action="RemoveCommentPersonal" asp-route-id="@item.Id" class="btn remove-btn">Remove comment</a>
+                                <a asp-controller="Home" asp-action="RemoveCommentPersonal" asp-route-id="@item.Id" style="text-align: right; font-size:small; text-decoration:none;">
+                                    <img src="~/Images/4.png" style="height:22px" />
+                                </a>
                             </div>
                         </li>
                     }
                 }
             </ul>
+            </div>
+            </div>
         </div>
     </div>
 </div>
