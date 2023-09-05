@@ -55,8 +55,16 @@ namespace SFMvc.Controllers
         }
 
 
-        [HttpGet("remove/{id}")]
-        public IActionResult RemoveComment(int id)
+        [HttpGet("removeCommentPersonal/{id}")]
+        public IActionResult RemoveCommentPersonal(int id)
+        {
+            dataService.RemoveComment(id);
+            return RedirectToAction("personal");
+        }
+
+
+        [HttpGet("removeCommentDetails/{id}")]
+        public IActionResult RemoveCommentDetails(int id)
         {
             int showId = dataService.RemoveComment(id);
             return RedirectToAction("details", new { id = showId });

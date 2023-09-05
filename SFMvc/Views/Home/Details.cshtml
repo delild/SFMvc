@@ -6,7 +6,7 @@
 
 <div style="display:flex; justify-content: center; margin-top:100px;">
     <div style="margin-right:40px; width:550px;">
-        <img style="width: 500px;" src="~/Images/@Model.Show.ImageUrl" />
+        <img style="width: 500px; margin-top:10px; margin-bottom:10px;" src="~/Images/@Model.Show.ImageUrl" />
         <h1 style="color:#E2E3E4">@Model.Show.Title</h1>
         @if (Model.Show.Format == "Serie")
         {
@@ -24,21 +24,28 @@
         <a href="@Model.Show.StreamingUrl"><img style="width:80px;" class="rounded" src="~/Images/@Model.Show.LogoUrl" /></a>
     </div>
     <div style="display: flex; flex-direction: column; justify-content: space-between; margin-left:40px; width:379px;">
+        <h2 style="color:#E2E3E4">Users Comments</h2>
         <ul style="padding:0;">
             @if (Model.Comments != null)
             {
                 @foreach (var item in Model.Comments)
                 {
                     <li style="list-style:none;">
-                        <div style="color:#E2E3E4">
-                            @item.UserName,
-                            @item.Time
-                            <div style="width: 379px;word-wrap: break-word; padding:10px; margin-bottom:20px; background-color:rgba(1,46,64,0.5);" class="border border-warning rounded">
-                                @item.Text
+                        <div style="color:#E2E3E4; display:flex; flex-direction: column;">
+                            <div style="display:flex; justify-content:space-between;  margin-top:20px;">
+                                <div>
+                                    @item.UserName
+                                </div>
+                                <div>
+                                    @item.Time
+                                </div>
                             </div>
+                            <div style="width: 379px;word-wrap: break-word; padding:10px; margin-bottom:5px; background-color:rgba(1,46,64,0.5);" class="border border-warning rounded">
+                                @item.Text
+                         </div>
                             @if (item.UserName == User.Identity.Name)
                             {
-                                <a asp-controller="Home" asp-action="RemoveComment" asp-route-id="@item.Id" class="btn remove-btn">Remove comment</a>
+                                <a asp-controller="Home" asp-action="RemoveCommentDetails" asp-route-id="@item.Id" style="color:#E84217; text-align: right; font-size:small">Remove comment</a>
                             }
                         </div>
                     </li>
