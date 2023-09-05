@@ -212,6 +212,8 @@ namespace SFMvc.Models
                     UserName = FindUserById(x.UserId).UserName,
                     Text = x.Text,
                     Time = x.Time,
+                    Id = x.Id,
+                    ShowId = x.ShowId,
                     
                 })
                 .ToArray();
@@ -240,13 +242,14 @@ namespace SFMvc.Models
             context.SaveChanges();
         }
 
-                
+        internal int RemoveComment(int commentId)
+        {
+            var itemToRemove = context.Comments.SingleOrDefault(x => x.Id == commentId);
+            int showId = itemToRemove.ShowId;
+            context.Comments.Remove(itemToRemove);
 
-               
-
-            
-
-
-
+            context.SaveChanges();
+            return showId;
+        }
     }
 }
