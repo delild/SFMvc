@@ -38,16 +38,16 @@
                                 <div>
                                     @item.UserName
                                 </div>
-                                <div>
+                                <div style="font-size:small">
                                     @item.Time
                                 </div>
                             </div>
-                            <div style="width: 379px;word-wrap: break-word; padding:10px; margin-bottom:5px; background-color:rgba(1,46,64,0.5);" class="border border-warning rounded">
+                            <div style="width: 379px;word-wrap: break-word; padding:10px; margin-bottom:2px; background-color:rgba(1,46,64,0.5);" class="border border-warning rounded">
                                 @item.Text
                          </div>
                             @if (item.UserName == User.Identity.Name)
                             {
-                                <a asp-controller="Home" asp-action="RemoveCommentDetails" asp-route-id="@item.Id" style="color:#E84217; text-align: right; font-size:small">Remove comment</a>
+                                <a asp-controller="Home" asp-action="RemoveCommentDetails" asp-route-id="@item.Id" style="color:#E84217; text-align: right; font-size:small; text-decoration:none;">🗑️</a>
                             }
                         </div>
                     </li>
