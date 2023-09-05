@@ -53,7 +53,7 @@
 
                   <p class="card-text" style="flex-grow: 1;"></p>
                   <div style="display: flex; justify-content: space-between; align-items: center;">
-                              <a href="@item.StreamingUrl"><img src="/Images/@item.LogoUrl" style="height:50px;" class="center-cropped" /></a>
+                                      <a href="@item.StreamingUrl"><img src="/Images/@item.LogoUrl" style="height:50px; box-shadow: -3px -3px 5px #101C2C;" class="center-cropped" /></a>
                       @if (User.Identity.IsAuthenticated)
                       {
                             <a class="btn btn-primary" onclick="AddToWatchList(@item.Id)"><div id="buttonText_@item.Id"></div></a>
