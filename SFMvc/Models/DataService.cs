@@ -125,9 +125,9 @@ namespace SFMvc.Models
 
         internal PersonalVM GetMyWatchList()
         {
-            var model = new PersonalVM(); 
-            
-            
+            var model = new PersonalVM();
+
+
             var movies = context.Shows2Users.Where(o => o.ApplicationUserId == userId).ToList();
 
             MyShowVM[] shows = new MyShowVM[movies.Count];
@@ -147,31 +147,33 @@ namespace SFMvc.Models
                     StreamingUrl = x.StreamingUrl,
                     NumberOfSeasons = x.NumberOfSeasons,
                     NumberOfEpisodes = x.NumberOfEpisodes,
-                    LengthInMinutes = x.LengthInMinutes,
-                    
-
+                    LengthInMinutes = x.LengthInMinutes
+                    //Cast = x.Cast,
+                    //Director = x.Director,
+                    //ImdbLink = x.ImdbLink,
+                    //Genres = x.Genres
                 })
                 .First();
 
 
                 shows[i] = showItem;
-			}
+            }
 
-            model.MyShows = shows;  
+            model.MyShows = shows;
 
 
             model.MyComments = context.Comments
             .Where(c => c.UserId == userId)
-            .Select(c =>  new MyCommentVM
+            .Select(c => new MyCommentVM
             {
-                Text = c.Text,  
+                Text = c.Text,
                 Time = c.Time,
                 Title = context.Shows.SingleOrDefault(s => s.Id == c.ShowId).Title,
 
-            }).ToArray();   
-            
+            }).ToArray();
 
-             return model;
+
+            return model;
         }
 
         internal string GetUserNameByEmail(string email)
@@ -193,10 +195,10 @@ namespace SFMvc.Models
                         ImageUrl = x.ImageUrl,
                         LogoUrl = x.LogoUrl,
                         Title = x.Title,
-                        LengthInMinutes= x.LengthInMinutes,
-                        NumberOfEpisodes= x.NumberOfEpisodes,
-                        NumberOfSeasons= x.NumberOfSeasons,
-                        StreamingUrl= x.StreamingUrl,
+                        LengthInMinutes = x.LengthInMinutes,
+                        NumberOfEpisodes = x.NumberOfEpisodes,
+                        NumberOfSeasons = x.NumberOfSeasons,
+                        StreamingUrl = x.StreamingUrl,
                     }
                 }
             ).FirstAsync();
@@ -214,7 +216,7 @@ namespace SFMvc.Models
                     Time = x.Time,
                     Id = x.Id,
                     ShowId = x.ShowId,
-                    
+
                 })
                 .ToArray();
             }
@@ -229,7 +231,7 @@ namespace SFMvc.Models
 
         public void AddToComments(DetailsVM model, int showId)
         {
-           
+
             context.Comments.Add(new Comment
             {
                 Text = model.Text,
@@ -238,7 +240,7 @@ namespace SFMvc.Models
                 UserId = userId,
 
             });
-                
+
             context.SaveChanges();
         }
 

@@ -14,11 +14,11 @@
         public int? NumberOfSeasons { get; set; }
         public int Year { get; set; }
         public List<Shows2Users> UsersThatLikeMe { get; set; }
-        public List<string> Cast { get; set; }
-        public string Director { get; set; } // för film
-        public List<string> Creators { get; set; } // för serier som har många directors
+        public string Cast { get; set; }
+        public string? Director { get; set; } // för film
+        public string? Creators { get; set; } // för serier som har många directors
         public string ImdbLink { get; set; }
-        public List<string> Genres { get; set; }
+        public string Genres { get; set; }
 
 
 

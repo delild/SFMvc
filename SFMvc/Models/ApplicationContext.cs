@@ -35,10 +35,10 @@ namespace SFMvc.Models
                       NumberOfEpisodes = 124,
                       NumberOfSeasons = 7,
                       Year = 2009,
-                      Cast = { "Amy Poehler", "Jim O'Heir", "Nick Offerman", "Chris Pratt", "Aubrey Plaza", "Aziz Ansari", "Retta", "Rashida Jones", "Adam Scott", "Rob Lowe", "Jay Jackson", "Paul Schneider", "Ben Schwartz", "Mo Collins", "Yvans Jourdain", "Jon Glaser", "Billy Eichner", "James Greene" },
-                      Creators = { "Greg Daniels", "Michael Schur" },
+                      Cast =  "Amy Poehler, Jim O'Heir, Nick Offerman, Chris Pratt, Aubrey Plaza, Aziz Ansari, Retta, Rashida Jones, Adam Scott, Rob Lowe, Jay Jackson, Paul Schneider, Ben Schwartz, Mo Collins, Yvans Jourdain, Jon Glaser, Billy Eichner, James Greene",
+                      Creators = "Greg Daniels, Michael Schur",
                       ImdbLink = "https://www.imdb.com/title/tt1266020/",
-                      Genres = { "Comedy" }
+                      Genres =  "Comedy" 
                   },
 
                   new Show
@@ -53,10 +53,10 @@ namespace SFMvc.Models
                       NumberOfEpisodes = 60,
                       NumberOfSeasons = 5,
                       Year = 2016,
-                      Cast = { "Claire Foy", "Olivia Colman", "Imelda Staunton", "Matt Smith", "Tobias Menzies", "Dominic West", "Lesley Manville", "Charles Edwards", "Elizabeth Debicki", "Jonathan Pryce", "Vanessa Kirby", "Marion Bailey", "Victoria Hamilton", "Helena Bonham Carter", "Pip Torrens", "Sam Phillips", "Erin Doherty", "Will Keen" },
-                      Creators = { "Peter Morgan" },
+                      Cast = "Claire Foy, Olivia Colman, Imelda Staunton, Matt Smith, Tobias Menzies, Dominic West, Lesley Manville, Charles Edwards, Elizabeth Debicki, Jonathan Pryce, Vanessa Kirby, Marion Bailey, Victoria Hamilton, Helena Bonham Carter, Pip Torrens, Sam Phillips, Erin Doherty, Will Keen",
+                      Creators =  "Peter Morgan" ,
                       ImdbLink = "https://www.imdb.com/title/tt4786824/",
-                      Genres = { "Biography", "Drama", "History" }
+                      Genres = "Biography, Drama, History"
                   },
 
                   new Show
@@ -71,10 +71,10 @@ namespace SFMvc.Models
                       NumberOfEpisodes = 10,
                       NumberOfSeasons = 1,
                       Year = 2023,
-                      Cast = { "Pedro Pascal", "Bella Ramsey", "Anna Torv", "Lamar Johnson", "Melanie Lynskey", "Nico Parker", "Merle Dandridge", "Keivonn Woodard", "Jeffrey Pierce", "John Getz", "Gabriel Luna", "Samuel Hoeksema", "Olivier Ross-Parent", "Rutina Wesley", "Storm Reid", "Scott Shepherd", "Ashley Johnson", "Nick Offerman" },
-                      Creators = { "Neil Druckmann", "Craig Mazin" },
+                      Cast = "Pedro Pascal, Bella Ramsey, Anna Torv, Lamar Johnson, Melanie Lynskey, Nico Parker, Merle Dandridge, Keivonn Woodard, Jeffrey Pierce, John Getz, Gabriel Luna, Samuel Hoeksema, Olivier Ross-Parent, Rutina Wesley, Storm Reid, Scott Shepherd, Ashley Johnson, Nick Offerman",
+                      Creators = "Neil Druckmann, Craig Mazin",
                       ImdbLink = "https://www.imdb.com/title/tt3581920/",
-                      Genres = { "Action", "Adventure", "Drama" }
+                      Genres = "Action, Adventure, Drama" 
                   },
 
                   new Show
@@ -89,10 +89,10 @@ namespace SFMvc.Models
                       NumberOfEpisodes = 18,
                       NumberOfSeasons = 3,
                       Year = 2020,
-                      Cast = { "John Wilson" },
+                      Cast = "John Wilson",
                       Director = "John Wilson",
                       ImdbLink = "https://www.imdb.com/title/tt10801534/",
-                      Genres = { "Documentary", "Comedy" }
+                      Genres = "Documentary, Comedy" 
                   },
 
                   new Show
@@ -106,10 +106,10 @@ namespace SFMvc.Models
                       StreamingUrl = "https://www.hbomax.com/se/sv",
                       LengthInMinutes = 150,
                       Year = 2020,
-                      Cast = { "John David Washington", "Robert Pattinson", "Elizabeth Debicki", "Juhan Ulfsak", "Jefferson Hall", "Ivo Uukkivi", "Andrew Howard", "Rich Ceraulo Ko", "Jonathan Camp", "Wes Chatham", "Sander Rebane", "Martin Donovan", "Clémence Poésy", "Josh Stewart", "Dimple Kapadia", "Denzil Smith", "Jeremy Theobald", "Michael Caine" },
+                      Cast = "John David Washington, Robert Pattinson, Elizabeth Debicki, Juhan Ulfsak, Jefferson Hall, Ivo Uukkivi, Andrew Howard, Rich Ceraulo Ko, Jonathan Camp, Wes Chatham, Sander Rebane, Martin Donovan, Clémence Poésy, Josh Stewart, Dimple Kapadia, Denzil Smith, Jeremy Theobald, Michael Caine",
                       Director = "Christopher Nolan",
                       ImdbLink = "https://www.imdb.com/title/tt6723592/",
-                      Genres = { "Action", "Sci-Fi", "Thriller" }
+                      Genres = "Action, Sci-Fi, Thriller" 
                   },
 
                   new Show
@@ -123,10 +123,10 @@ namespace SFMvc.Models
                       StreamingUrl = "https://www.hbomax.com/se/sv",
                       NumberOfEpisodes = 5,
                       Year = 2019,
-                      Cast = { "Jessie Buckley", "Jared Harris", "Stellan Skarsgård", "Adam Nagaitis", "Emily Watson", "Paul Ritter", "Robert Emms", "Sam Troughton", "Karl Davies", "Michael Socha", "Laura Elphinstone", "Jan Ricica", "Adrian Rawlins", "Alan Williams", "Con O'Neill", "Douggie McMeekin", "Nadia Clifford", "David Dencik" },
-                      Creators = { "Craig Mazin" },
+                      Cast = "Jessie Buckley, Jared Harris, Stellan Skarsgård, Adam Nagaitis, Emily Watson, Paul Ritter, Robert Emms, Sam Troughton, Karl Davies, Michael Socha, Laura Elphinstone, Jan Ricica, Adrian Rawlins, Alan Williams, Con O'Neill, Douggie McMeekin, Nadia Clifford, David Dencik",
+                      Creators = "Craig Mazin",
                       ImdbLink = "https://www.imdb.com/title/tt7366338/",
-                      Genres = { "Drama", "History", "Thriller" }
+                      Genres = "Drama, History, Thriller"
                   },
 
                   new Show
@@ -141,10 +141,10 @@ namespace SFMvc.Models
                       NumberOfEpisodes = 18,
                       NumberOfSeasons = 2,
                       Year = 2022,
-                      Cast = { "Jeremy Allen White", "Ebon Moss-Bachrach", "Ayo Edebiri", "Lionel Boyce", "Liza Colón-Zayas", "Abby Elliott", "Matty Matheson", "Edwin Lee Gibson", "Corey Hendrix", "Richard Esteras", "Jose M. Cervantes", "Oliver Platt", "Chris Witaske", "Molly Gordon", "Carmen Christopher", "Robert Townsend", "Joel McHale", "Alex Moffat" },
-                      Creators = { "Christopher Storer" },
+                      Cast = "Jeremy Allen White, Ebon Moss-Bachrach, Ayo Edebiri, Lionel Boyce, Liza Colón-Zayas, Abby Elliott, Matty Matheson, Edwin Lee Gibson, Corey Hendrix, Richard Esteras, Jose M. Cervantes, Oliver Platt, Chris Witaske, Molly Gordon, Carmen Christopher, Robert Townsend, Joel McHale, Alex Moffat",
+                      Creators = "Christopher Storer",
                       ImdbLink = "https://www.imdb.com/title/tt14452776/",
-                      Genres = { "Comedy", "Drama" }
+                      Genres = "Comedy, Drama"
                   },
 
                   new Show
@@ -158,10 +158,10 @@ namespace SFMvc.Models
                       StreamingUrl = "https://www.disneyplus.com/en-se",
                       LengthInMinutes = 150,
                       Year = 2023,
-                      Cast = { "Chris Pratt", "Chukwudi Iwuji", "Bradley Cooper", "Pom Klementieff", "Dave Bautista", "Karen Gillan", "Vin Diesel", "Austin Freeman", "Stephen Blackehart","Terence Rosemore", "Maria Bakalova", "Sean Gunn", "Sarah Alami", "Jasmine Munoz", "Giovannie Cruz", "Will Poulter", "Nico Santos", "Miriam Shor" },
+                      Cast =  "Chris Pratt, Chukwudi Iwuji, Bradley Cooper, Pom Klementieff, Dave Bautista, Karen Gillan, Vin Diesel, Austin Freeman, Stephen Blackehart, Terence Rosemore, Maria Bakalova, Sean Gunn, Sarah Alami, Jasmine Munoz, Giovannie Cruz, Will Poulter, Nico Santos, Miriam Shor",
                       Director = "James Gunn",
                       ImdbLink = "https://www.imdb.com/title/tt6791350/",
-                      Genres = { "Action","Adventure","Comedy" }
+                      Genres = "Action, Adventure, Comedy"
                   },
 
                   new Show
@@ -175,10 +175,10 @@ namespace SFMvc.Models
                       StreamingUrl = "https://www.disneyplus.com/en-se",
                       LengthInMinutes = 122,
                       Year = 2014,
-                      Cast = { "Chris Pratt", "Vin Diesel", "Bradley Cooper", "Zoe Saldana", "Lee Pace", "Dave Bautista", "Michael Rooker", "Karen Gillan", "Djimon Hounsou", "John C. Reilly", "Glenn Close", "Laura Haddock", "Sean Gunn", "Peter Serafinowicz", "Christopher Fairbank", "Krystian Godlewski", "Wyatt Oleff" },
+                      Cast = "Chris Pratt, Vin Diesel, Bradley Cooper, Zoe Saldana, Lee Pace, Dave Bautista, Michael Rooker, Karen Gillan, Djimon Hounsou, John C. Reilly, Glenn Close, Laura Haddock, Sean Gunn, Peter Serafinowicz, Christopher Fairbank, Krystian Godlewski, Wyatt Oleff ",
                       Director = "James Gunn",
                       ImdbLink = "https://www.imdb.com/title/tt2015381/",
-                      Genres = { "Action", "Adventure", "Comedy" }
+                      Genres = "Action, Adventure, Comedy"
                   }
                   //new Show
                   //{
