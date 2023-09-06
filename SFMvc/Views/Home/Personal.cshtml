@@ -7,9 +7,12 @@
 <h1 style="visibility:hidden;">My Page</h1>
 
 <div class="overall-container watchlist">
-    <div style="display:flex; display: flex;flex-direction: column; align-items: center;">
+    <div style="display:flex; display: flex;flex-direction: column; align-items: flex-start;">
         <div style="display:flex;">
-            <h2 style="color:#E2E3E4; margin-bottom:50px;">My Watchlist</h2>
+            <h2 style="font-family: 'Arial Rounded MT';margin-right: 8px;color: #E84217;font-size: 42px;margin-bottom: 24px;margin-top: -9px;">
+                |
+            </h2>
+            <h2 style="color:#E2E3E4;margin-bottom:50px;font-family:Helvetica;">My Watchlist</h2>
         </div>
     <div class="mypage-container">
     @foreach (var item in Model.MyShows)
@@ -25,7 +28,7 @@
                         @if (item.Format == "Film"){<p><i> @(item.LengthInMinutes / 60) h @(item.LengthInMinutes % 60) min</i></p>}
                     <p class="card-text" style="flex-grow: 1;"></p>
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <a href="@item.StreamingUrl"><img src="/Images/@item.LogoUrl" class="logo-img" /></a>
+                                <a href="@item.StreamingUrl"><img src="/Images/@item.LogoUrl" class="logo-img" style="box-shadow: -3px -3px 6px black;" /></a>
                                 <a asp-controller="Home" asp-action="RemoveFromWatchlist" asp-route-id="@item.Id" class="btn btn-primary"><div>Remove from Watchlist</div></a>
                     </div>
                 </div>
@@ -34,12 +37,16 @@
     }
     </div>
     </div>
-    <div style="display: flex;flex-direction: column;align-items: center;">
-       <div style="margin-bottom:44px;"> <h2 style="color:#E2E3E4;">My Comments</h2></div>
-    <div style="display: flex;flex-direction: column;justify-content: space-between;margin-left: 0px;width: 400px;">
+    <div style="display: flex;flex-direction: column;align-items: flex-start;">
+       <div style="margin-bottom:3px; display:flex; flex-direction:row;"> 
+            <h2 style="font-family: 'Arial Rounded MT' ;margin-right: 8px;color: #E84217;font-size: 42px;margin-bottom: 24px;margin-top: -9px;">
+                |
+            </h2>
+           <h2 style="color:#E2E3E4; font-family:Helvetica">My Comments</h2></div>
+    <div style="display: flex;flex-direction: column;justify-content: space-between;margin-left: 0px;width: 420px;">
             <div class="scrollbar" style=" overflow-y: auto; height: 500px;margin-bottom: 40px;">
                 <div data-bs-spy="scroll" data-bs-smooth-scroll="true" tabindex="0" style="display:flex; flex-direction:column; justify-content:space-between;">
-            <ul style="padding:0; padding-right:20px">
+            <ul style="padding:0; padding-right:29px">
                 @if (Model.MyComments != null)
                 {
                     @foreach (var item in Model.MyComments)
@@ -47,14 +54,14 @@
                         <li style="list-style:none;">
                             <div style="color:#E2E3E4; display:flex;  flex-direction: column;">
                                 <div style="display:flex; justify-content:space-between; margin-top:20px">
-                                    <div style="color: rgba(255, 195, 0, 0.9); font-weight: bold;">
+                                    <div style="color: rgba(255, 195, 0, 0.9); font-weight: bold; padding-left:7px;">
                                         @item.Title
                                     </div>
                                     <div style="font-size:small;">
                                         @item.Time
                                     </div>
                                 </div>
-                                <div style="width: 379px;word-wrap: break-word; padding:10px; margin-bottom:2px; background-color:rgba(1,46,64,0.5);" class="border border-warning rounded">
+                                        <div style="width: 379px;word-wrap: break-word;padding: 10px;margin-bottom: 2px;background-color: rgba(1,46,64,0.5);border: none;box-shadow: -1px -1px 3px black;margin-left: 4px;border-radius: 5px;">
                                     @item.Text
                                 </div>
                                 <a asp-controller="Home" asp-action="RemoveCommentPersonal" asp-route-id="@item.Id" style="text-align: right; font-size:small; text-decoration:none;">
