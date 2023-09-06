@@ -66,7 +66,7 @@
             @if (User.Identity.IsAuthenticated)
             {
                 <form asp-controller="Home" asp-action="SaveComment" asp-route-id="@Model.Show.Id">
-                    <textarea cols="5" rows="5" asp-for="Text" placeholder="write your comment here" class="form-control comment-box" style="text-align: left; vertical-align: top;"></textarea>
+                    <textarea cols="5" rows="5" asp-for="Text" placeholder="Write your comment here" class="form-control comment-box" style="text-align: left; vertical-align: top;"></textarea>
                     <span asp-validation-for="Text"></span>
                     <input class="login-button btn-secondary" style="width:70px; height:40px;"type="submit" value="Post" />
                 </form>
