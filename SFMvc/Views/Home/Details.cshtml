@@ -36,7 +36,8 @@
         {
             <p style="color:#E2E3E4"> Director: &nbsp; @Model.Show.Director</p>
         }
-        <p style ="color:#E2E3E4">Cast: &nbsp; @Model.Show.Cast</p>
+        <div class="movie-description"><p style="color:#E2E3E4">Cast: &nbsp; @Model.Show.Cast</p></div>
+        <p class="expand-points" style="color:#E2E3E4">See more... </p>
     </div>
     <div style="display: flex; flex-direction: column; justify-content: space-between; margin-left:40px; width:420px;">
         <div style="display:flex; flex-direction:row; margin-top:7px;">
@@ -91,3 +92,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.querySelector('.movie-description').addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the link from navigating
+        document.querySelector('.movie-description').classList.toggle('expanded');
+    });
+
+</script>
