@@ -148,10 +148,7 @@ namespace SFMvc.Models
                     NumberOfSeasons = x.NumberOfSeasons,
                     NumberOfEpisodes = x.NumberOfEpisodes,
                     LengthInMinutes = x.LengthInMinutes
-                    //Cast = x.Cast,
-                    //Director = x.Director,
-                    //ImdbLink = x.ImdbLink,
-                    //Genres = x.Genres
+
                 })
                 .First();
 
@@ -200,6 +197,12 @@ namespace SFMvc.Models
                         NumberOfEpisodes = x.NumberOfEpisodes,
                         NumberOfSeasons = x.NumberOfSeasons,
                         StreamingUrl = x.StreamingUrl,
+                        Cast = x.Cast,
+                        Year = x.Year,
+                        Director = x.Director,
+                        Creators = x.Creators,
+                        ImdbLink = x.ImdbLink,
+                        Genres = x.Genres
                     }
                 }
             ).FirstAsync();

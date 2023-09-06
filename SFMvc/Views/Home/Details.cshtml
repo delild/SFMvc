@@ -7,34 +7,49 @@
 <div style="display:flex; justify-content: center; margin-top:100px;">
     <div style="margin-right:40px; width:550px;">
         <img style="width: 500px; margin-top:10px; margin-bottom:10px;" src="~/Images/@Model.Show.ImageUrl" />
-        <h1 style="color:#E2E3E4">@Model.Show.Title</h1>
-        @if (Model.Show.Format == "Serie")
+        <div style="display:flex; justify-content: space-between; padding-right: 50px;">
+            <div>
+                <h1 style="color:#E2E3E4">@Model.Show.Title</h1>
+                @if (Model.Show.Format == "Serie")
+                {
+                    <p style="color:#E2E3E4"><i> @Model.Show.NumberOfSeasons @(Model.Show.NumberOfSeasons > 1 ? "seasons" : "season") &nbsp; | &nbsp; @Model.Show.Year &nbsp; | &nbsp; @Model.Show.Genres </i></p>
+                }
+                @if (Model.Show.Format == "Miniserie")
+                {
+                    <p style="color:#E2E3E4"><i> @Model.Show.NumberOfEpisodes episodes &nbsp; | &nbsp; @Model.Show.Year &nbsp; | &nbsp; @Model.Show.Genres</i></p>
+                }
+                @if (Model.Show.Format == "Film")
+                {
+                    <p style="color:#E2E3E4"><i> @(Model.Show.LengthInMinutes / 60) h @(Model.Show.LengthInMinutes % 60) min &nbsp; | &nbsp; @Model.Show.Year &nbsp; | &nbsp; @Model.Show.Genres</i></p>
+                }
+            </div>
+            <div style="padding-top: 5px">
+                <a href="@Model.Show.StreamingUrl"><img style="width:80px; box-shadow: -3px -3px 6px black;" class="rounded" src="~/Images/@Model.Show.LogoUrl" /></a>
+            </div>
+        </div>
+        <p style="color:#E2E3E4; width:510px;">@Model.Show.Description</p>
+        @if (Model.Show.Format == "Serie" || Model.Show.Format == "Miniserie")
         {
-            <p style="color:#E2E3E4"><i> @Model.Show.NumberOfSeasons @(Model.Show.NumberOfSeasons > 1 ? "seasons" : "season")</i></p>
-        }
-        @if (Model.Show.Format == "Miniserie")
-        {
-            <p style="color:#E2E3E4"><i> @Model.Show.NumberOfEpisodes episodes</i></p>
+            <p style="color:#E2E3E4"> @(Model.Show.Creators.Contains(",") ? "Creators" : "Creator"): &nbsp; @Model.Show.Creators</p>
         }
         @if (Model.Show.Format == "Film")
         {
-            <p style="color:#E2E3E4"><i> @(Model.Show.LengthInMinutes / 60) h @(Model.Show.LengthInMinutes % 60) min</i></p>
+            <p style="color:#E2E3E4"> Director: &nbsp; @Model.Show.Director</p>
         }
-        <p style="color:#E2E3E4; width:510px;">@Model.Show.Description</p>
-        <a href="@Model.Show.StreamingUrl"><img style="width:80px; box-shadow: -3px -3px 6px black;" class="rounded" src="~/Images/@Model.Show.LogoUrl" /></a>
+        <p style ="color:#E2E3E4">Cast: &nbsp; @Model.Show.Cast</p>
     </div>
-    <div style="display: flex; flex-direction: column; justify-content: space-between; margin-left:40px; width:420px;" >
+    <div style="display: flex; flex-direction: column; justify-content: space-between; margin-left:40px; width:420px;">
         <div style="display:flex; flex-direction:row; margin-top:7px;">
-        <h2 style="font-family: 'Arial Rounded MT';margin-right: 8px;color: #E84217;font-size: 42px;margin-bottom: 24px;margin-top: -9px;">
-            |
-        </h2>
-        <h2 style="color:#E2E3E4; font-family:Helvetica">Users' Comments</h2>
+            <h2 style="font-family: 'Arial Rounded MT';margin-right: 8px;color: #E84217;font-size: 42px;margin-bottom: 24px;margin-top: -9px;">
+                |
+            </h2>
+            <h2 style="color:#E2E3E4; font-family:Helvetica">Users' Comments</h2>
         </div>
         <div class="scrollbar" style=" overflow-y: auto; height: 500px;margin-bottom: 40px;">
-         <div style="display:flex; flex-direction:column; justify-content:space-between;">
-        <ul style="padding:0px; padding-right:37px;">
-            @if (Model.Comments != null)
-            {
+            <div style="display:flex; flex-direction:column; justify-content:space-between;">
+                <ul style="padding:0px; padding-right:37px;">
+                    @if (Model.Comments != null)
+                    {
                         @foreach (var item in Model.Comments)
                         {
                             <li style="list-style:none;">
@@ -53,13 +68,14 @@
                                     @if (item.UserName == User.Identity.Name)
                                     {
                                         <a asp-controller="Home" asp-action="RemoveCommentDetails" asp-route-id="@item.Id" style="text-align: right; font-size:small; text-decoration:none;">
-                                            <img src="~/Images/4.png" style="height:22px" /></a>
+                                            <img src="~/Images/4.png" style="height:22px" />
+                                        </a>
                                     }
                                 </div>
                             </li>
                         }
                     }
-            </ul>
+                </ul>
             </div>
         </div>
         <div>
@@ -68,7 +84,7 @@
                 <form asp-controller="Home" asp-action="SaveComment" asp-route-id="@Model.Show.Id">
                     <textarea cols="5" rows="5" asp-for="Text" placeholder="Write your comment here" class="form-control comment-box" style="text-align: left; vertical-align: top;"></textarea>
                     <span asp-validation-for="Text"></span>
-                    <input class="login-button btn-secondary" style="width:70px; height:40px;"type="submit" value="Post" />
+                    <input class="login-button btn-secondary" style="width:70px; height:40px;" type="submit" value="Post" />
                 </form>
             }
 

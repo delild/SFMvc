@@ -31,5 +31,11 @@ namespace SFMvc.Views.Home
         public int? LengthInMinutes { get; set; }
         public int? NumberOfEpisodes { get; set; }
         public int? NumberOfSeasons { get; set; }
+        public int Year { get; set; }
+        public string Cast { get; set; }
+        public string? Director { get; set; } // för film
+        public string? Creators { get; set; } // för serier som har många directors
+        public string ImdbLink { get; set; }
+        public string Genres { get; set; }
     }
 }

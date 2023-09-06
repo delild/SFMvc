@@ -90,7 +90,7 @@ namespace SFMvc.Models
                       NumberOfSeasons = 3,
                       Year = 2020,
                       Cast = "John Wilson",
-                      Director = "John Wilson",
+                      Creators = "John Wilson",
                       ImdbLink = "https://www.imdb.com/title/tt10801534/",
                       Genres = "Documentary, Comedy"
                   },
