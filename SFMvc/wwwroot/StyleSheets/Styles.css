@@ -279,3 +279,8 @@ h2 {
 .expand-points-description.expanded {
     display: none;
 }
+
+.form-control:focus {
+    border-color: rgba(255, 195, 0);
+    box-shadow: rgba(255, 195, 0, 0.3) 0px 7px 29px 0px;
+}

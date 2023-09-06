@@ -53,14 +53,14 @@
 
                   <p class="card-text" style="flex-grow: 1;"></p>
                   <div style="display: flex; justify-content: space-between; align-items: center;">
-                                              <a href="@item.StreamingUrl"><img src="/Images/@item.LogoUrl" style="height:50px; box-shadow: -2px -2px 6px black;" class="center-cropped" /></a>
+                                              <a href="@item.StreamingUrl"><img src="/Images/@item.LogoUrl" style="height:50px; box-shadow: -2px -2px 6px black; background-color:rgba(226,227,228,0.8)" class="center-cropped" /></a>
                       @if (User.Identity.IsAuthenticated)
                       {
                             <a class="btn btn-primary" onclick="AddToWatchList(@item.Id)"><div id="buttonText_@item.Id"></div></a>
                       }
                       else
                       {
-                            <a class="btn btn-primary" onclick="redirecttologin()"><div id="buttonText_@item.Id"></div></a>
+                            <a class="btn btn-primary" onclick="redirecttologin()" id="button_@item.Id"><div id="buttonText_@item.Id"></div></a>
                       }
                   </div>
                 </div>
@@ -90,6 +90,8 @@
                    
                         const buttonDiv = document.getElementById("buttonText_" + id)
                         buttonDiv.innerHTML = html
+                        // const button = document.getElementById("button_" + id)
+                        // button.ariaDisabled=true //KANSKE FIXA.
                 })
     }
 
