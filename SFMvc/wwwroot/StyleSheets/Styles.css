@@ -236,7 +236,7 @@ h2 {
 
 
 
-.movie-description {
+.cast-description {
     max-height: 20px; /* Set the maximum height of the description */
     overflow: hidden; /* Hide the overflow content */
     position: relative; /* Positioning for the expand button */
@@ -244,15 +244,38 @@ h2 {
 }
 
 .expand-points {
-    display: block;
+    display: grid;
     cursor: pointer;
     
 }
 
-.movie-description.expanded {
+.cast-description.expanded {
   max-height: none; /* Allow the content to expand to its full height */
 }
 
-.movie-description.expanded .expand-points {
+.expand-points.expanded {
+    display: none;
+}
+
+
+
+
+.movie-description {
+    max-height: 70px; /* Set the maximum height of the description */
+    overflow: hidden; /* Hide the overflow content */
+    position: relative; /* Positioning for the expand button */
+    cursor: pointer;
+}
+
+.expand-points-description {
+    display: grid;
+    cursor: pointer;
+}
+
+.movie-description.expanded {
+    max-height: none; /* Allow the content to expand to its full height */
+}
+
+.expand-points-description.expanded {
     display: none;
 }

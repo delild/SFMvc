@@ -12,32 +12,37 @@
                 <h1 style="color:#E2E3E4">@Model.Show.Title</h1>
                 @if (Model.Show.Format == "Serie")
                 {
-                    <p style="color:#E2E3E4"><i> @Model.Show.NumberOfSeasons @(Model.Show.NumberOfSeasons > 1 ? "seasons" : "season") &nbsp; | &nbsp; @Model.Show.Year &nbsp; | &nbsp; @Model.Show.Genres </i></p>
+                    <p style="color:#FFC300"><i> @Model.Show.NumberOfSeasons @(Model.Show.NumberOfSeasons > 1 ? "seasons" : "season") &nbsp; <span style="color:#E2E3E4">|</span> &nbsp; @Model.Show.Year &nbsp; <span style="color:#E2E3E4">|</span> &nbsp; @Model.Show.Genres </i></p>
                 }
                 @if (Model.Show.Format == "Miniserie")
                 {
-                    <p style="color:#E2E3E4"><i> @Model.Show.NumberOfEpisodes episodes &nbsp; | &nbsp; @Model.Show.Year &nbsp; | &nbsp; @Model.Show.Genres</i></p>
+                    <p style="color:#FFC300"><i> @Model.Show.NumberOfEpisodes episodes &nbsp; <span style="color:#E2E3E4">|</span> &nbsp; @Model.Show.Year &nbsp; <span style="color:#E2E3E4">|</span> &nbsp; @Model.Show.Genres</i></p>
                 }
                 @if (Model.Show.Format == "Film")
                 {
-                    <p style="color:#E2E3E4"><i> @(Model.Show.LengthInMinutes / 60) h @(Model.Show.LengthInMinutes % 60) min &nbsp; | &nbsp; @Model.Show.Year &nbsp; | &nbsp; @Model.Show.Genres</i></p>
+                    <p style="color:#FFC300"><i> @(Model.Show.LengthInMinutes / 60) h @(Model.Show.LengthInMinutes % 60) min &nbsp; <span style="color:#E2E3E4">|</span> &nbsp; @Model.Show.Year &nbsp; <span style="color:#E2E3E4">|</span> &nbsp; @Model.Show.Genres</i></p>
                 }
             </div>
             <div style="padding-top: 5px">
                 <a href="@Model.Show.StreamingUrl"><img style="width:80px; box-shadow: -3px -3px 6px black;" class="rounded" src="~/Images/@Model.Show.LogoUrl" /></a>
             </div>
         </div>
+        <div class="movie-description">
         <p style="color:#E2E3E4; width:510px;">@Model.Show.Description</p>
+        </div>
+        <p class="expand-points-description" style="color:#E2E3E4; font-weight:bold;">See more... </p>
         @if (Model.Show.Format == "Serie" || Model.Show.Format == "Miniserie")
         {
-            <p style="color:#E2E3E4"> @(Model.Show.Creators.Contains(",") ? "Creators" : "Creator"): &nbsp; @Model.Show.Creators</p>
+            <p style="color:#E2E3E4"> <span style="color:#FFC300; font-weight:bold;">@(Model.Show.Creators.Contains(",") ? "Creators" : "Creator")</span> &nbsp; @Model.Show.Creators</p>
         }
         @if (Model.Show.Format == "Film")
         {
-            <p style="color:#E2E3E4"> Director: &nbsp; @Model.Show.Director</p>
+            <p style="color:#E2E3E4"> <span style="color:#FFC300; font-weight:bold;">Director</span> &nbsp; @Model.Show.Director</p>
         }
-        <div class="movie-description"><p style="color:#E2E3E4">Cast: &nbsp; @Model.Show.Cast</p></div>
-        <p class="expand-points" style="color:#E2E3E4">See more... </p>
+        <div class="cast-description">
+            <p style="color:#E2E3E4"><span style="color:#FFC300; font-weight:bold;">Cast</span> &nbsp; @Model.Show.Cast</p>
+        </div>
+        <p class="expand-points" style="color:#E2E3E4; font-weight:bold;">See more... </p>
     </div>
     <div style="display: flex; flex-direction: column; justify-content: space-between; margin-left:40px; width:420px;">
         <div style="display:flex; flex-direction:row; margin-top:7px;">
@@ -94,9 +99,26 @@
 </div>
 
 <script>
+    document.querySelector('.cast-description').addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the link from navigating
+        document.querySelector('.cast-description').classList.toggle('expanded');
+        document.querySelector('.expand-points').classList.toggle('expanded');
+    });
+    document.querySelector('.expand-points').addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the link from navigating
+        document.querySelector('.cast-description').classList.toggle('expanded');
+        document.querySelector('.expand-points').classList.toggle('expanded');
+    });
+
     document.querySelector('.movie-description').addEventListener('click', function (event) {
         event.preventDefault(); // Prevent the link from navigating
         document.querySelector('.movie-description').classList.toggle('expanded');
+        document.querySelector('.expand-points-description').classList.toggle('expanded');
+    });
+    document.querySelector('.expand-points-description').addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the link from navigating
+        document.querySelector('.movie-description').classList.toggle('expanded');
+        document.querySelector('.expand-points-description').classList.toggle('expanded');
     });
 
 </script>
