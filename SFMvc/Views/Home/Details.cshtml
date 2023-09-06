@@ -20,14 +20,19 @@
         {
             <p style="color:#E2E3E4"><i> @(Model.Show.LengthInMinutes / 60) h @(Model.Show.LengthInMinutes % 60) min</i></p>
         }
-        <p style="color:#E2E3E4">@Model.Show.Description</p>
-        <a href="@Model.Show.StreamingUrl"><img style="width:80px;" class="rounded" src="~/Images/@Model.Show.LogoUrl" /></a>
+        <p style="color:#E2E3E4; width:510px;">@Model.Show.Description</p>
+        <a href="@Model.Show.StreamingUrl"><img style="width:80px; box-shadow: -3px -3px 6px black;" class="rounded" src="~/Images/@Model.Show.LogoUrl" /></a>
     </div>
-    <div style="display: flex; flex-direction: column; justify-content: space-between; margin-left:40px; width:400px;" >
-        <h2 style="color:#E2E3E4">Users Comments</h2>
+    <div style="display: flex; flex-direction: column; justify-content: space-between; margin-left:40px; width:420px;" >
+        <div style="display:flex; flex-direction:row; margin-top:7px;">
+        <h2 style="font-family: 'Arial Rounded MT';margin-right: 8px;color: #E84217;font-size: 42px;margin-bottom: 24px;margin-top: -9px;">
+            |
+        </h2>
+        <h2 style="color:#E2E3E4; font-family:Helvetica">Users' Comments</h2>
+        </div>
         <div class="scrollbar" style=" overflow-y: auto; height: 500px;margin-bottom: 40px;">
-         <div data-bs-spy="scroll" data-bs-smooth-scroll="true" tabindex="0" style="display:flex; flex-direction:column; justify-content:space-between;">
-        <ul style="padding:0px; padding-right:20px;" >
+         <div style="display:flex; flex-direction:column; justify-content:space-between;">
+        <ul style="padding:0px; padding-right:29px;" >
             @if (Model.Comments != null)
             {
                         @foreach (var item in Model.Comments)
@@ -35,14 +40,14 @@
                             <li style="list-style:none;">
                                 <div style="color:#E2E3E4; display:flex; flex-direction: column;">
                                     <div style="display:flex; justify-content:space-between;  margin-top:20px;">
-                                        <div>
+                                        <div style="padding-left:7px;">
                                             @item.UserName
                                         </div>
                                         <div style="font-size:small">
                                             @item.Time
                                         </div>
                                     </div>
-                                    <div style="width: 379px;word-wrap: break-word; padding:10px; margin-bottom:2px; background-color:rgba(1,46,64,0.5);" class="border border-warning rounded">
+                                    <div style="width: 379px;word-wrap: break-word;padding: 10px;margin-bottom: 2px;background-color: rgba(1,46,64,0.5);border: none;box-shadow: -1px -1px 3px black;margin-left: 4px;border-radius: 5px;">
                                         @item.Text
                                     </div>
                                     @if (item.UserName == User.Identity.Name)
