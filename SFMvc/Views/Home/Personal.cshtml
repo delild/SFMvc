@@ -28,7 +28,7 @@
                         @if (item.Format == "Film"){<p><i> @(item.LengthInMinutes / 60) h @(item.LengthInMinutes % 60) min</i></p>}
                     <p class="card-text" style="flex-grow: 1;"></p>
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                                <a href="@item.StreamingUrl"><img src="/Images/@item.LogoUrl" class="logo-img" style="box-shadow: -3px -3px 6px black;" alt="Logo for the streaming service @item.StreamingUrl"/></a>
+                                <a href="@item.StreamingUrl" target="_blank"><img src="/Images/@item.LogoUrl" class="logo-img" style="box-shadow: -3px -3px 6px black;" alt="Logo for the streaming service @item.StreamingUrl" /></a>
                                 <a asp-controller="Home" asp-action="RemoveFromWatchlist" asp-route-id="@item.Id" class="btn btn-primary"><div>Remove from Watchlist</div></a>
                     </div>
                 </div>
