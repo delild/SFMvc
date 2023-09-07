@@ -6,7 +6,7 @@
 
 <div style="display:flex; justify-content: center; margin-top:100px;">
     <div style="margin-right:40px; width:550px;">
-        <img style="width: 500px; margin-top:10px; margin-bottom:10px;" src="~/Images/@Model.Show.ImageUrl" />
+        <img style="width: 500px; margin-top:10px; margin-bottom:10px;" src="~/Images/@Model.Show.ImageUrl" alt="Image from the show @Model.Show.Title" />
         <div style="display:flex; justify-content: space-between; padding-right: 50px;">
             <div>
                 <h1 style="color:#E2E3E4">@Model.Show.Title</h1>
@@ -24,7 +24,7 @@
                 }
             </div>
             <div style="padding-top: 5px">
-                <a href="@Model.Show.StreamingUrl"><img style="width:80px; box-shadow: -3px -3px 6px black;" class="rounded" src="~/Images/@Model.Show.LogoUrl" /></a>
+                <a href="@Model.Show.StreamingUrl"><img style="width:80px; box-shadow: -3px -3px 6px black;" class="rounded" src="~/Images/@Model.Show.LogoUrl" alt="Logo for the streaming service @Model.Show.StreamingUrl" /></a>
             </div>
         </div>
         <div class="movie-description">
@@ -54,7 +54,7 @@
                 }
         </div>
         <p class="expand-points" style="color:#E2E3E4; font-weight:bold;">See more... </p>
-        <a href="@Model.Show.ImdbLink" title="More info on IMDB" ><img src="~/Images/imdb-logo.png" style="width:50px; box-shadow: -3px -3px 6px black;" /></a>
+        <a href="@Model.Show.ImdbLink" title="More info on IMDB" ><img src="~/Images/imdb-logo.png" style="width:50px; box-shadow: -3px -3px 6px black;" alt="IMDB logo" /></a>
     </div>
     <div style="display: flex; flex-direction: column; justify-content: space-between; margin-left:40px; width:420px;">
         <div style="display:flex; flex-direction:row; margin-top:7px;">
@@ -86,7 +86,7 @@
                                     @if (item.UserName == User.Identity.Name)
                                     {
                                         <a asp-controller="Home" asp-action="RemoveCommentDetails" asp-route-id="@item.Id" style="text-align: right; font-size:small; text-decoration:none;">
-                                            <img src="~/Images/4.png" style="height:22px" />
+                                            <img src="~/Images/4.png" style="height:22px" alt="Trash can" />
                                         </a>
                                     }
                                 </div>
