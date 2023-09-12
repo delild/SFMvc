@@ -148,6 +148,7 @@ namespace SFMvc.Controllers
             return View(model);
         }
 
+
         [HttpGet("details/{id}")]
         public async Task<IActionResult> DetailsAsync(int id)
         {
