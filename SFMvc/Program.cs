@@ -16,7 +16,8 @@ namespace SFMvc
                 .AddDefaultTokenProviders();
             builder.Services.AddHttpContextAccessor();
             // Hämta connection-strängen från AppSettings.json
-            var connString = builder.Configuration.GetConnectionString("DefaultConnection");
+            var configuration = builder.Configuration;
+            var connString = configuration["ConnectionStrings:DefaultConnection"];
 
             // Registrera Context-klassen för dependency injection
             builder.Services.AddDbContext<ApplicationContext>(o => o.UseSqlServer(connString));
